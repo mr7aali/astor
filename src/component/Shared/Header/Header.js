@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import './Header.css'
 const Header = () => {
     return (
-        <div className="navbar bg-base-300 max-w-screen-2xl	mx-auto h">
+       <div>
+         <div className="navbar  max-w-screen-2xl mx-auto ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,14 +22,17 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><a href=' '>Item 1</a></li>
+                    <li><Link to='/' className='text-2xl text-purple-500'>Home</Link></li>
                     
                 </ul>
             </div>
             <div className="navbar-end">
                 <a href=' ' className="btn">Login</a>
             </div>
+            
         </div>
+        <hr />
+       </div>
     );
 };
 
