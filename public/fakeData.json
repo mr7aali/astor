@@ -1,0 +1,16 @@
+[
+    {   "id":1,
+       "brandName":"Samsung" ,
+       "img":"https://i.ibb.co/zH9dsGh/catagori-samsung.jpg"    
+    },
+    {
+        "id":2,
+        "brandName":"iPhone" ,
+        "img":"https://i.ibb.co/2jf4qz7/iphone-12-pro-max-download-photos.jpg"
+    },
+    {
+        "id":3,
+        "brandName":"Xiaomi " ,
+        "img":"https://i.ibb.co/HrSKRBd/xingye-jiang-i3eek-DPHd-RQ-unsplash.jpg"
+    }
+]
