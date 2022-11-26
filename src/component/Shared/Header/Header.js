@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import './Header.css'
 const Header = () => {
+    const {user,LogOut}=useContext(AuthContext);
+    console.log(user)
+
     return (
         <div>
             <hr />
@@ -31,8 +35,20 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+             {
+                user?.email ?
+                <Link onClick={LogOut}  className="ml-2 btn ">Log Out</Link>
+                :
+                <>
+                
                 <Link to='/login' className="btn btn-outline btn-primary bg-base-200">Login</Link>
                 <Link to='/register' className="ml-2 btn ">Register</Link>
+                </>
+             }
+
+
+
+               
                 </div>
 
             </div>

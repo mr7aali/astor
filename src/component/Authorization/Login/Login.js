@@ -2,15 +2,32 @@ import React, { useContext } from 'react';
 import './Login.css'
 
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { toast } from 'react-toastify';
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
-    const { singWithGoogle } = useContext(AuthContext);
+    const { singWithGoogle,logIn } = useContext(AuthContext);
+
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
 
     const handleLogIN =data=>{
         console.log(data);
+        const {Email,password}=data;
+        logIn(Email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, { replace: true });
+        })
+        .catch(error=>console.error(error));
     }
 
 
@@ -19,6 +36,7 @@ const Login = () => {
         .then(result=>{
             const user = result.user;
             console.log(user);
+            navigate(from, { replace: true });
         })
     }
 
@@ -34,11 +52,15 @@ const Login = () => {
                 <h3>Login Here</h3>
 
                 <label for="username">Email</label>
-                <input {...register("Email")} type="text" placeholder="Login with your email" id="username" />
+                <input {...register("Email",{
+                    required:true
+                })} type="text" placeholder="Login with your email" id="username" />
 
                 <label for="password">Password</label>
 
-                <input {...register("password")} type="password" placeholder="Password" id="password" />
+                <input {...register("password",{
+                    required:true
+                })} type="password" placeholder="Password" id="password" />
                
                 <h1 className='text-lg mt-5'>Don't have an account yet?
                     <Link className=' text-red-600 font-bold' to={'/register'}>  Register Now</Link>
