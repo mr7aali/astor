@@ -24,16 +24,15 @@ const Brand = () => {
                 brandLoader && <progress className="progress w-56 mt-32"></progress>
             }
 
-                {
-                    Brands?.map(b => <Link to={`/category/${b._id}`}>
+                 {
+                    Brands?.map(b => <Link to={`/category/${b._id}` }  key={b._id}>
                         <SingleBrand
-                            key={b._id}
+                           
                             b={b}
                         ></SingleBrand>
                     </Link>)
-                }
-
-
+                } 
+                 
             </div>
 
         </div>

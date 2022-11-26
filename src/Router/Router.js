@@ -1,5 +1,4 @@
 import Category from "../component/Category/Category";
-import Banner from "../component/Home/Banner/Banner";
 import Home from "../component/Home/Home";
 
 
@@ -18,7 +17,7 @@ const router =createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<Category></Category>,
-                loader:({params})=>fetch(`http://localhost:5000/categorys/${params.id}`)
+                 loader:({params})=>fetch(`http://localhost:5000/categorys/${params.id}`)
             }
         ]
     }

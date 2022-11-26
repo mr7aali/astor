@@ -1,0 +1,7 @@
+.phone-container{
+    margin-top: 100px;
+   
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 150px;
+}
