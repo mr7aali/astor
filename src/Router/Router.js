@@ -22,11 +22,7 @@ const router =createBrowserRouter([
                  loader:({params})=>fetch(`http://localhost:5000/categorys/${params.id}`)
             },
            
-            {
-                path:'/register',
-
-                element:<LogOut></LogOut>
-            }
+           
         ]
     },
     {
@@ -34,7 +30,15 @@ const router =createBrowserRouter([
             path:'/login',
             element:<Login></Login>
         
-    }
+    },
+    {
+        
+            path:'/register',
+
+            element:<LogOut></LogOut>
+        
+    },
+
 ]);
 
 export default router;
