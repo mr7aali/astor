@@ -1,4 +1,5 @@
 import Banner from "../component/Home/Banner/Banner";
+import Home from "../component/Home/Home";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -11,7 +12,7 @@ const router =createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Banner></Banner>
+                element:<Home></Home>
             }
         ]
     }

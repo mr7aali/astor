@@ -1,0 +1,40 @@
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-brand {
+    font-family: 'Open Sans';
+    color: green;
+    /* text-transform: uppercase; */
+    /* background: #ffffff; */
+    background: transparent;
+    width: 200px;
+    padding: 10px;
+    font-weight: 900;
+    border: 1px solid white;
+    border-left: 15px solid white;
+   
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+  }
+.single-brand h1{
+    color: white;
+    font-size: 25px;
+    display: inline-block;
+    text-align: start;
+}
+
+.single-brand:hover {
+    /* color: #494949 !important; */
+    color: white;
+    border-radius: 50px;
+    /* border-color: #494949 !important; */
+    border-color: aliceblue;
+    transition: all 0.6s ease 0s;
+    color: rgb(0, 0, 0);
+  }
+  
