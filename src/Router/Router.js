@@ -1,5 +1,5 @@
 import Login from "../component/Authorization/Login/Login";
-import LogOut from "../component/Authorization/LogOut/LogOut";
+import LogOut from "../component/Authorization/LogOut/Resister";
 import Category from "../component/Category/Category";
 import Home from "../component/Home/Home";
 

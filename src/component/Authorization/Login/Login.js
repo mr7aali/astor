@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
-import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 const Login = () => {
 
-
     const { register, handleSubmit } = useForm();
-    const [data, setData] = useState("");
+    const { singWithGoogle } = useContext(AuthContext);
+
+    const handleLogIN =data=>{
+        console.log(data);
+    }
+
+
+    const GoogleLogIn =()=>{
+        singWithGoogle()
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+        })
+    }
 
     return (
         <div className='login-page '>
@@ -17,7 +30,7 @@ const Login = () => {
                 <div class="shape"></div>
                 <div class="shape"></div>
             </div>
-            <form>
+            <form onSubmit={handleSubmit(handleLogIN)}>
                 <h3>Login Here</h3>
 
                 <label for="username">Email</label>
@@ -32,7 +45,7 @@ const Login = () => {
                 </h1>
 
                 <button>Log In</button>
-                <button className="btn btn-outline btn-success google-btn">Login with GooGle</button>
+                <button onClick={GoogleLogIn} className="btn btn-outline btn-success google-btn">Login with GooGle</button>
             </form>
 
         </div>
