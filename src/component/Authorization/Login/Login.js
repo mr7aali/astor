@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
@@ -26,6 +27,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true });
+            toast(`Hi,${user?.displayName} Welcome to Astor`);
         })
         .catch(error=>console.error(error));
     }
@@ -37,6 +39,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true });
+            toast(`Hi,${user?.displayName} Welcome to Astor`);
         })
     }
 
@@ -48,17 +51,17 @@ const Login = () => {
                 <div class="shape"></div>
                 <div class="shape"></div>
             </div>
-            <form onSubmit={handleSubmit(handleLogIN)}>
+            <form className='login-from' onSubmit={handleSubmit(handleLogIN)}>
                 <h3>Login Here</h3>
 
                 <label for="username">Email</label>
-                <input {...register("Email",{
+                <input className='login-input' {...register("Email",{
                     required:true
                 })} type="text" placeholder="Login with your email" id="username" />
 
                 <label for="password">Password</label>
 
-                <input {...register("password",{
+                <input className='login-input' {...register("password",{
                     required:true
                 })} type="password" placeholder="Password" id="password" />
                
@@ -66,8 +69,8 @@ const Login = () => {
                     <Link className=' text-red-600 font-bold' to={'/register'}>  Register Now</Link>
                 </h1>
 
-                <button>Log In</button>
-                <button onClick={GoogleLogIn} className="btn btn-outline btn-success google-btn">Login with GooGle</button>
+                <button className='login-btn'>Log In</button>
+                <button  onClick={GoogleLogIn} className="btn btn-outline btn-success google-btn login-btn">Login with GooGle</button>
             </form>
 
         </div>

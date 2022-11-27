@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import Modeal from '../Mdeal/Modeal';
 import PhoneCard from '../PhoneCard/PhoneCard';
 import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
     const [modeal,setModeal]= useState(null);
-    console.log(phones)
-console.log(phones)
+   
+
+    
     return (
         <div className='phone-container max-w-screen-2xl mx-auto '>
         {

@@ -1,9 +1,42 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
-import './Modeal.css'
+import './Modeal.css';
+import { useForm } from "react-hook-form";
+
+import { toast } from 'react-toastify';
 const Modeal = ({ modealData }) => {
     const { user } = useContext(AuthContext);
-    console.log(modealData)
+ 
+   
+
+    const { register, handleSubmit, reset } = useForm();
+    
+   const handleModeal=data=>{
+
+     const bookingDetails ={
+        bookedIteam:modealData?.name,
+        UserName: user?.displayName,
+        Email:user?.email,
+        price:modealData?.resalePrice,
+        address:data.address
+     }
+     
+     fetch('http://localhost:5000/booking', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(bookingDetails)
+
+    })
+    .then(res => res.json())
+            .then(data => {
+                console.log(data) ;
+                toast(`${modealData?.name} Booked Successfully `)
+                 reset();
+            })
+   }
+
     return (
         <div>
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -13,19 +46,24 @@ const Modeal = ({ modealData }) => {
                     <h3 className="text-lg font-bold text-center m-5">Model <span>{modealData?.name}</span></h3>
 
 
+                    <form onSubmit={handleSubmit(handleModeal)}>
 
-                    <div className='nameFild'>
-                        <input type="text" disabled value={user?.displayName} className="input input-bordered w-5/12 font-bold " />
-                        <input type="text" disabled value={user?.email} className="input input-bordered w-1/2  font-bold " />
-                    </div>
-                    <div className='nameFild mt-5'>
-                        <input type="text" disabled value={modealData?.resalePrice + " $"} className="input input-bordered mr-5 w-1/3" />
-                        <input type="text" placeholder="Type here your  number" className="input input-bordered w-full " />
-                    </div>
+                        <div className='nameFild'>
+                            <input {...register("UserName")} type="text" disabled defaultValue={user?.displayName}  className="input input-bordered w-5/12 font-bold " />
+                            <input {...register("Email")} type="text" disabled value={user?.email} className="input input-bordered w-1/2  font-bold " />
+                        </div>
 
-                    <input type="text" placeholder=" type your preferable address" className="input input-bordered w-full mt-5" />
+                        <div className='nameFild mt-5'>
+                            <input {...register("BookingPrice")} type="text" disabled value={modealData?.resalePrice + " $"} className="input input-bordered mr-5 w-1/3" />
+                            <input {...register("Mobile")} type="text" placeholder="Type here your  number" className="input input-bordered w-full "  required/>
+                        </div>
 
+                        <input {...register("address")}  type="text" placeholder=" type your preferable address" className="input input-bordered w-full mt-5" required/>
 
+                       <div className='mt-5 text-center w-full'>
+                       <button className="btn btn-outline w-full ">Click For Book</button>
+                       </div>
+                    </form>
 
 
 
