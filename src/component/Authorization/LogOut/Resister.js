@@ -21,6 +21,20 @@ const Register = () => {
 
     const { register, handleSubmit } = useForm();
     const handleReister = data => {
+        let rol;
+        const isSeller = window.confirm('Do you want a seller?');
+        if (isSeller) {
+            rol = 'seller';
+        }
+        else{
+            rol='buyer';
+        }
+
+       const data1 ={
+        Name: data.Name,
+        Email: data.Email,
+        rol: rol
+       }
 
 
         createUser(data.Email, data.password)
@@ -29,37 +43,37 @@ const Register = () => {
                 console.log(user);
                 navigate(from, { replace: true });
 
-                updateProfile(auth.currentUser,{
+                updateProfile(auth.currentUser, {
                     displayName: data.Name,
                 })
-                .then(()=>{
-                    toast(`Hi,${user.displayName} Welcome to Astor`);
-                    postUser(data);
-                    
-                }).catch(err=>console.log(err))
+                    .then(() => {
+                        toast(`Hi,${user.displayName} Welcome to Astor`);
+                        postUser(data1);
+
+                    }).catch(err => console.log(err))
 
             })
             .catch(err => console.error(err));
 
-            
+
 
     }
 
     const GoogleLogIn = () => {
-        
+
         singWithGoogle()
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                const data={
-                    Name:user?.displayName,
-                    Email:user?.email,
-                    rol:'buyer'
+                const data = {
+                    Name: user?.displayName,
+                    Email: user?.email,
+                    rol: 'buyer'
                 }
                 postUser(data);
                 navigate(from, { replace: true });
                 toast(`Hi,${user?.displayName} Welcome to Astor`);
-               
+
 
             })
     }
@@ -90,7 +104,7 @@ const Register = () => {
                 </h1>
 
                 <button className='res-btn' >Register</button>
-                <button  onClick={GoogleLogIn} className="btn btn-outline btn-success google-btn res-btn">Register with GooGle</button>
+                <button onClick={GoogleLogIn} className="btn btn-outline btn-success google-btn res-btn">Register with GooGle</button>
             </form>
 
 

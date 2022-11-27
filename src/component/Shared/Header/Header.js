@@ -37,7 +37,10 @@ const Header = () => {
                 <div className="navbar-end">
              {
                 user?.email ?
+                <>
+                <Link to='/dashboard' className="btn btn-outline btn-primary bg-base-200">Dashboard</Link>
                 <Link onClick={LogOut}  className="ml-2 btn ">Log Out</Link>
+                </>
                 :
                 <>
                 

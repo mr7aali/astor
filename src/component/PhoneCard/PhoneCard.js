@@ -1,7 +1,8 @@
 import React from 'react';
+
 import './PhoneCard.css'
 const PhoneCard = ({ phone,setModeal }) => {
-    const { brandName, _id, location, name, originalPrice, picture, postedTime, resalePrice, sellerName, yearsOfUse } = phone;
+    const { brandName,  location, name, originalPrice, picture, postedTime, resalePrice, sellerName, yearsOfUse } = phone;
     return (
         <div className='single-phone'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -16,15 +17,16 @@ const PhoneCard = ({ phone,setModeal }) => {
                     <p>Asking Price: {resalePrice}$</p>
                     <p>Used: {yearsOfUse} y</p>
                     <p>Seller Name: {sellerName}</p>
+                    <p>Location: {location}</p>
                     <p>Post On {postedTime}</p>
 
 
 
 
-                    <label onClick={()=>setModeal(phone)} htmlFor="my-modal-3" className="btn btn-outline  w-full text.lg ">Book Now</label>
+                    <label  onClick={()=>setModeal(phone)} htmlFor="my-modal-3" className="btn btn-outline  w-full text.lg ">Book Now</label>
 
-
-                    
+                  
+                     
 
                 </div>
 

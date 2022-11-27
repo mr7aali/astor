@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import Modeal from '../Mdeal/Modeal';
 import PhoneCard from '../PhoneCard/PhoneCard';
+
 import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
@@ -18,9 +19,16 @@ const Category = () => {
             setModeal={setModeal}
             ></PhoneCard>)
         }
+
+
+
         <Modeal
         modealData={modeal}
-        ></Modeal>
+        ></Modeal> 
+       
+
+
+
         </div>
     );
 };

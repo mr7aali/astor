@@ -4,6 +4,7 @@ import './Modeal.css';
 import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
+import PrivetRout from '../PrivetRout/PrivetRout';
 const Modeal = ({ modealData }) => {
     const { user } = useContext(AuthContext);
  
@@ -38,7 +39,9 @@ const Modeal = ({ modealData }) => {
    }
 
     return (
+        <PrivetRout>
         <div>
+            
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
@@ -71,6 +74,7 @@ const Modeal = ({ modealData }) => {
 
             </div>
         </div>
+        </PrivetRout>
     );
 };
 
