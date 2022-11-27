@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+import postUser from '../../../utility/usePostUser';
 
 const Login = () => {
 
@@ -40,6 +41,12 @@ const Login = () => {
             console.log(user);
             navigate(from, { replace: true });
             toast(`Hi,${user?.displayName} Welcome to Astor`);
+            const data={
+                Name:user?.displayName,
+                Email:user?.email,
+                rol:'buyer'
+            }
+            postUser(data);
         })
     }
 

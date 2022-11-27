@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import app from '../../../firebase/firebase.config';
 import './Resister.css'
+import postUser from '../../../utility/usePostUser';
 const auth = getAuth(app)
 
 const Register = () => {
@@ -33,22 +34,32 @@ const Register = () => {
                 })
                 .then(()=>{
                     toast(`Hi,${user.displayName} Welcome to Astor`);
-
+                    postUser(data);
+                    
                 }).catch(err=>console.log(err))
 
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
+
+            
 
     }
 
     const GoogleLogIn = () => {
+        
         singWithGoogle()
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                const data={
+                    Name:user?.displayName,
+                    Email:user?.email,
+                    rol:'buyer'
+                }
+                postUser(data);
                 navigate(from, { replace: true });
                 toast(`Hi,${user?.displayName} Welcome to Astor`);
-
+               
 
             })
     }

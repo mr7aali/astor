@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export const postUser=(data)=>{
+const postUser =(data)=>{
     fetch('http://localhost:5000/user', {
         method: 'POST',
         headers: {
@@ -11,7 +11,7 @@ export const postUser=(data)=>{
     .then(res => res.json())
             .then(data => {
                 console.log(data) ;
-                toast(`User added Successfully `);
-                 
+                toast(`User added Successfully `);        
             })
 }
+export default postUser;
