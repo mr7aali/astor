@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Modeal from '../Mdeal/Modeal';
 import PhoneCard from '../PhoneCard/PhoneCard';
 import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
+    const [modeal,setModeal]= useState(null);
     console.log(phones)
 console.log(phones)
     return (
@@ -12,8 +14,12 @@ console.log(phones)
             phones?.map(p=><PhoneCard
             key={p._id}
             phone={p}
+            setModeal={setModeal}
             ></PhoneCard>)
         }
+        <Modeal
+        modealData={modeal}
+        ></Modeal>
         </div>
     );
 };

@@ -63,9 +63,9 @@ const Register = () => {
                 <h3>Resister Here</h3>
 
                 <label >Name</label>
-                <input {...register("Name")} type="text" placeholder="Login with your email" id="username" />
+                <input {...register("Name")} type="text" placeholder="Login with your email" required id="username" />
                 <label >Email</label>
-                <input {...register("Email")} type="text" placeholder="Login with your email" id="username" />
+                <input {...register("Email")} type="text" placeholder="Login with your email" required id="username" />
 
                 <label >Password</label>
 
