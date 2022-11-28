@@ -90,12 +90,12 @@ const Register = () => {
             <form className='register-from' onSubmit={handleSubmit(handleReister)}>
                 <h3>Resister Here</h3>
 
-                <label >Name</label>
+                <label className='res-lavel' >Name</label>
                 <input className='res-input' {...register("Name")} type="text" placeholder="Login with your email" required id="username" />
-                <label >Email</label>
+                <label className='res-lavel'>Email</label>
                 <input className='res-input' {...register("Email")} type="text" placeholder="Login with your email" required id="username" />
 
-                <label >Password</label>
+                <label className='res-lavel' >Password</label>
 
                 <input className='res-input' {...register("password")} type="password" placeholder="Password" required id="password" />
 

@@ -9,7 +9,7 @@ import postUser from '../../../utility/usePostUser';
 
 const Login = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register,reset, handleSubmit } = useForm();
     const { singWithGoogle,logIn } = useContext(AuthContext);
 
 
@@ -31,6 +31,7 @@ const Login = () => {
             toast(`Hi,${user?.displayName} Welcome to Astor`);
         })
         .catch(error=>console.error(error));
+        reset();
     }
 
 
@@ -61,16 +62,16 @@ const Login = () => {
             <form className='login-from' onSubmit={handleSubmit(handleLogIN)}>
                 <h3>Login Here</h3>
 
-                <label for="username">Email</label>
+                <label className='login-label' for="username">Email</label>
                 <input className='login-input' {...register("Email",{
-                    required:true
-                })} type="text" placeholder="Login with your email" id="username" />
+                
+                })} type="text" placeholder="Login with your email" id="username"  required/>
 
-                <label for="password">Password</label>
+                <label className='login-label' for="password">Password</label>
 
                 <input className='login-input' {...register("password",{
-                    required:true
-                })} type="password" placeholder="Password" id="password" />
+                  
+                })}  type="password" placeholder="Password"  required />
                
                 <h1 className='text-lg mt-5'>Don't have an account yet?
                     <Link className=' text-red-600 font-bold' to={'/register'}>  Register Now</Link>

@@ -65,7 +65,7 @@
     text-align: center;
 }
 
-label{
+.login-label{
     display: block;
     margin-top: 30px;
     font-size: 16px;
