@@ -3,14 +3,24 @@ import './Addproduct.css'
 const AddProduct = () => {
     return (
         <div className='addproduct-div'>
-            <h1 className='text-primary text-4xl font-bold text-center'>Add a product</h1>
+            <h1 className='text-primary text-4xl font-bold text-center mb-10'>Add a product</h1>
             <div>
 
 
 
-                <div className="form-control w-full max-w-xs">
-                        <span className="label-text text-lg ">Product Name</span>                                   
-                    <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />       
+                <div className="form-control input-addproduct w-full max-w-xs">
+
+                    
+                                                   
+                    <input  type="text" placeholder=" Type product name" className="input  input-bordered w-full " />       
+                    <input  type="text" placeholder=" Type product name" className="input  input-bordered w-full " />       
+                    <input  type="text" placeholder=" Type product name" className="input  input-bordered w-full " />       
+                    <input  type="text" placeholder=" Type product name" className="input  input-bordered w-full " />       
+                    <input  type="text" placeholder=" Type product name" className="input  input-bordered w-full " />  
+                    <button type='submit' className="btn btn-outline w-full">Button</button>   
+
+
+
                 </div>
 
 

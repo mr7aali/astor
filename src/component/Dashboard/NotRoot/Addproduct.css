@@ -1,6 +1,17 @@
 .addproduct-div{
    padding: 50px 10px;
-    border: 1px solid red;
-    width: 60vw;
+ 
+    
+    height: 100vh;
     margin: 0px auto;
+}
+.input-addproduct{
+    border: 1px solid rgb(120, 108, 108);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.input-addproduct input{
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
