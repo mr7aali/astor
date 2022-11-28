@@ -1,6 +1,73 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Addproduct.css'
+import { useForm } from "react-hook-form";
+import { AuthContext } from '../../../contexts/AuthProvider';
+import { toast } from 'react-toastify';
 const AddProduct = () => {
+    //https://api.imgbb.com/1/upload
+
+    let showDate = new Date();
+    let dateString = showDate.toDateString();
+    const dateArray = dateString.split(" ");
+    const date = dateArray[2] + " " + dateArray[1] + " " + dateArray[3];
+
+
+    const { user } = useContext(AuthContext);
+    const { register, reset, handleSubmit } = useForm();
+    const imgHostKey = process.env.REACT_APP_imgbb_key;
+
+    const handleAddproduct = data => {
+        const image = data.img[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                //  console.log(imgData)
+                if (imgData.success) {
+
+                    const addProductData = {
+                        name: data.brandName,
+                        brandName: data.Brand,
+                        picture: imgData.data.url,
+                        location: data.location,
+                        resalePrice: data.resalePrice,
+                        sellerName: user?.displayName,
+                        originalPrice: data.originalPrice,
+                        yearsOfUse: data.yearsOfUse,
+                        postedTime: date,
+                        sellerEmail:user?.email
+
+                    }
+                   
+                   
+                    fetch('http://localhost:5000/addproduct', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(addProductData)
+
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            
+
+                            
+                            toast(`${data?.brandName} Booked Successfully `)
+                            reset();
+                        })
+
+
+
+                }
+
+            })
+    }
 
     return (
         <div className='addproduct-div'>
@@ -12,31 +79,48 @@ const AddProduct = () => {
                 <div className="form-control input-addproduct w-full max-w-xs">
 
 
-                    <form action="">
+                    <form onSubmit={handleSubmit(handleAddproduct)}>
 
-                        <input type="text" required placeholder=" Type product name" className="input  input-bordered w-full " />
-                        <input type="text" required placeholder=" Type product price" className="input  input-bordered w-full " />
-                        <select className="select input-bordered w-full max-w-xs">
+                        <input type="text" {...register('brandName')} required placeholder=" Type product name" className="input  input-bordered w-full " />
+                        <input type="text" {...register('resalePrice')} required placeholder=" Type resale price" className="input  input-bordered w-full " />
+                        <input type="text" {...register('originalPrice')} required placeholder=" Type Original price" className="input  input-bordered w-full " />
+
+
+                        <select {...register('condition')} className="select input-bordered w-full max-w-xs">
+
                             <option disabled selected>Condition</option>
-                            <option>One Piece</option>
-                            <option>Naruto</option>
-                            <option>Death Note</option>
-                           
+                            <option>Excellent</option>
+                            <option>Good</option>
+                            <option>Fair</option>
                         </select>
-                        <input type="text" placeholder="Type  mobile number" className="input  input-bordered w-full " />
-                        <select className="select input-bordered w-full max-w-xs" required>
-                            <option disabled selected>Condition</option>
+
+
+
+                        <input {...register('mobileNumber')} type="text" placeholder="Type  mobile number" className="input  input-bordered w-full " />
+
+
+
+                        {/* <select {...register('brandName')} className="select input-bordered w-full max-w-xs">
+                            <option disabled selected>Mobile Brand</option>
                             <option>Samsung</option>
                             <option>iPhone</option>
                             <option>Xiaomi</option>
-                            
-                           
+                        </select> */}
+                        <select {...register('Brand')} className="select input-bordered w-full max-w-xs">
+
+                            <option disabled selected>Brand</option>
+                            <option>Samsung</option>
+                            <option>iPhone</option>
+                            <option>Xiaomi</option>
                         </select>
-                        <input required type="text" placeholder=" Type location" className="input  input-bordered w-full " />
-                        
-                        <input required type="text" placeholder=" Type  year of use" className="input  input-bordered w-full " />
+
+
+
+                        <input {...register('location')} required type="text" placeholder=" Type location" className="input  input-bordered w-full " />
+
+                        <input {...register('yearsOfUse')} required type="text" placeholder=" Type  year of use" className="input  input-bordered w-full " />
                         <h1 className='text-lg'>Put product image</h1>
-                        <input required type="file" placeholder=" " className="input  input-bordered w-full " />
+                        <input {...register('img')} type="file" placeholder=" " className="input  input-bordered w-full " />
                         <button type='submit' className="btn btn-outline w-full">Button</button>
                     </form>
 
