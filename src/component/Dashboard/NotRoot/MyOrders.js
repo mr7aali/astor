@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
-import SingleMyOrders from '../SingleItea/SingleMyOrders';
+
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
@@ -17,6 +17,7 @@ const MyOrders = () => {
     })
     console.log(bookedIteams[0]);
     return (
+        
         <div>
             <h1 className='text-4xl m-5 text-primary font-bold text-center'>My Orders</h1>
 
@@ -36,23 +37,6 @@ const MyOrders = () => {
 
                         </tr>
                     </thead>
-
-                   
-
-
-
-{/* 
-
-                        {
-                            bookedIteams.map(b => <SingleMyOrders
-                                key={b?._id}
-                                phone={b}
-                            ></SingleMyOrders>)
-                        } */}
-
-
-
-
 
                    {
                     bookedIteams.map(phone=>  
@@ -85,13 +69,6 @@ const MyOrders = () => {
                                
                                  </tbody>)
                    }
-
-
-
-
-
-                   
-
                     <tfoot>
                         <tr>
 
@@ -106,6 +83,7 @@ const MyOrders = () => {
             </div>
 
         </div>
+
     );
 };
 

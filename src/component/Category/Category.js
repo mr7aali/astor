@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import Modeal from '../Mdeal/Modeal';
 import PhoneCard from '../PhoneCard/PhoneCard';
 
 import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
-    const [modeal,setModeal]= useState(null);
-   
+    //test const [modeal,setModeal]= useState(null);
+   const {modeal}=useContext(AuthContext);
 
     
     return (
@@ -16,7 +17,8 @@ const Category = () => {
             phones?.map(p=><PhoneCard
             key={p._id}
             phone={p}
-            setModeal={setModeal}
+
+            //test setModeal={setModeal}
             ></PhoneCard>)
         }
 

@@ -1,0 +1,20 @@
+.blog-container{
+    
+    padding: 15px;
+}
+.blog-container .blg{
+   border: 2px solid gray;
+   padding: 25px;
+   border-radius: 15px;
+    margin-top: 20px;
+}
+.blog-container .blg h1{
+    font-weight: 700;
+    color: blue;
+    font-size: 30px;
+}
+.blog-container .blg p{
+    font-weight: 500;
+    text-align: justify;
+    font-size: 20px;
+}

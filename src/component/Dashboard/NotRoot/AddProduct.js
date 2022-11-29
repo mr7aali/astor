@@ -3,8 +3,11 @@ import './Addproduct.css'
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router-dom';
 const AddProduct = () => {
-    //https://api.imgbb.com/1/upload
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/Dashboard/myproduct";
 
     let showDate = new Date();
     let dateString = showDate.toDateString();
@@ -40,7 +43,10 @@ const AddProduct = () => {
                         originalPrice: data.originalPrice,
                         yearsOfUse: data.yearsOfUse,
                         postedTime: date,
-                        sellerEmail:user?.email
+                        condition:data.condition,
+                        sellerEmail:user?.email,
+                        mobileNumber:data.mobileNumber,
+                        isVerified: true
 
                     }
                    
@@ -56,10 +62,9 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(data => {
                             
-
-                            
-                            toast(`${data?.brandName} Booked Successfully `)
+                            toast(`Added Successfully`)
                             reset();
+                            navigate(from, { replace: true });
                         })
 
 

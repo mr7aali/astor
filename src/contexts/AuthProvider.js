@@ -8,6 +8,8 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     
+
+    const [modeal,setModeal]= useState(null);
     const [user, setUser] = useState(null);
     const[loading ,setLoading]= useState(true);
    
@@ -34,7 +36,7 @@ const AuthProvider = ({ children }) => {
         });
         return () => unsubscribe();
     }, [])
-    const authInfo = {loading, createUser, logIn, singWithGoogle, user,LogOut }
+    const authInfo = {loading, createUser, logIn, singWithGoogle, user,LogOut,setModeal,modeal }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

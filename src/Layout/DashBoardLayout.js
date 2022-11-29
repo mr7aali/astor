@@ -63,6 +63,7 @@ const DashBoardLayout = () => {
                                 
                                 <li><Link to='/Dashboard' className='text-xl font-bold'>   All buyers</Link></li>
                                 <li><Link to='/Dashboard/allseller' className='text-xl font-bold'> All Sellers </Link></li>
+                                <li><Link to='/Dashboard/allseller' className='text-xl font-bold'> Reported Iteams </Link></li>
                             </>
                         }
 

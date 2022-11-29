@@ -1,5 +1,6 @@
 import Login from "../component/Authorization/Login/Login";
 import LogOut from "../component/Authorization/LogOut/Resister";
+import Blog from "../component/Blog/Blog";
 import Category from "../component/Category/Category";
 import Dashboard from "../component/Dashboard/Dashboard";
 import AllBuyers from "../component/Dashboard/NotRoot/AllBuyers";
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                 path: '/category/:id',
                 element: <Category></Category>,
                 loader: ({ params }) => fetch(`http://localhost:5000/categorys/${params.id}`)
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             }
 
 
