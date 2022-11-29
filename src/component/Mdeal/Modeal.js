@@ -16,7 +16,7 @@ const Modeal = ({ modealData,refetch  }) => {
 
 
     const handleDelet=(email,price)=>{
-        fetch(`http://localhost:5000/deleteAddvertise?email=${email}&price=${price}`, {
+        fetch(`https://astor-server.vercel.app/deleteAddvertise?email=${email}&price=${price}`, {
             method: 'DELETE'
         })
         .then(res=>res.json())
@@ -32,7 +32,7 @@ const Modeal = ({ modealData,refetch  }) => {
 
 
     const hadleStutaus = (email, price) => {
-        fetch(`http://localhost:5000/updateproductstatus?email=${email}&price=${price}`, {
+        fetch(`https://astor-server.vercel.app/updateproductstatus?email=${email}&price=${price}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -51,7 +51,7 @@ const Modeal = ({ modealData,refetch  }) => {
             sellerEmail: modealData.sellerEmail,
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://astor-server.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
