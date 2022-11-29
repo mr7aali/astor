@@ -9,6 +9,7 @@ import './advertage.css'
 
 const Advertice = () => {
     const {modeal}=useContext(AuthContext);
+   
     const { data: advertise = [],refetch } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
@@ -19,6 +20,9 @@ const Advertice = () => {
     })
 
 
+
+   
+   
     return (
         <div>
 
@@ -38,6 +42,7 @@ const Advertice = () => {
         }
         <Modeal
          modealData={modeal}
+         refetch ={refetch }
         >
         </Modeal>
 

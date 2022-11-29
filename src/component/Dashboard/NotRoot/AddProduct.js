@@ -5,6 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router-dom';
 const AddProduct = () => {
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/Dashboard/myproduct";
@@ -34,6 +35,8 @@ const AddProduct = () => {
                 if (imgData.success) {
 
                     const addProductData = {
+
+                        
                         name: data.brandName,
                         brandName: data.Brand,
                         picture: imgData.data.url,
@@ -47,6 +50,7 @@ const AddProduct = () => {
                         sellerEmail:user?.email,
                         mobileNumber:data.mobileNumber,
                         isVerified: true
+
 
                     }
                    

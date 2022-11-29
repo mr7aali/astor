@@ -22,15 +22,10 @@ const Category = () => {
             ></PhoneCard>)
         }
 
-
-
         <Modeal
         modealData={modeal}
         ></Modeal> 
        
-
-
-
         </div>
     );
 };

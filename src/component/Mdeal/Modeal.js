@@ -5,24 +5,40 @@ import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
 import PrivetRout from '../PrivetRout/PrivetRout';
-const Modeal = ({ modealData }) => {
+const Modeal = ({ modealData,refetch  }) => {
     const { user } = useContext(AuthContext);
-
+    
 
 
     const { register, handleSubmit, reset } = useForm();
 
 
 
-    const hadleStutaus=(email) =>{
-        fetch(`http://localhost:5000/updateproductstatus?email=${email}`,{
-            method:'PUT'
+
+    const handleDelet=(email,price)=>{
+        fetch(`http://localhost:5000/deleteAddvertise?email=${email}&price=${price}`, {
+            method: 'DELETE'
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            console.log(data);
+            refetch();
 
+        })
     }
 
+
+
+
+
+    const hadleStutaus = (email, price) => {
+        fetch(`http://localhost:5000/updateproductstatus?email=${email}&price=${price}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+          .then(data => console.log(data))
+
+    }
     const handleModeal = data => {
 
         const bookingDetails = {
@@ -32,7 +48,7 @@ const Modeal = ({ modealData }) => {
             picture: modealData?.picture,
             price: modealData?.resalePrice,
             address: data.address,
-            sellerEmail:modealData.sellerEmail
+            sellerEmail: modealData.sellerEmail,
         }
 
         fetch('http://localhost:5000/booking', {
@@ -45,18 +61,18 @@ const Modeal = ({ modealData }) => {
         })
             .then(res => res.json())
             .then(data => {
-               // console.log(data);
+                // console.log(data);
                 toast(`${modealData?.name} Booked Successfully `)
                 reset();
                 ////////////i have to update data status////////////
-                hadleStutaus(modealData.sellerEmail,modealData.picture,modealData.name);
+                hadleStutaus(modealData.sellerEmail, modealData.resalePrice);
                 //..........
-
+                handleDelet(modealData.sellerEmail, modealData.resalePrice);
             })
 
     }
-//onClick={()=>hadleStutaus(modealData.sellerEmail)}
-   
+    //onClick={()=>hadleStutaus(modealData.sellerEmail)}
+
     return (
         <PrivetRout>
             <div>
@@ -83,7 +99,7 @@ const Modeal = ({ modealData }) => {
                             <input {...register("address")} type="text" placeholder=" type your preferable address" className="input input-bordered w-full mt-5" required />
 
                             <div className='mt-5 text-center w-full'>
-                                <button  className="btn btn-outline w-full ">Click For Book</button>
+                                <button className="btn btn-outline w-full ">Click For Book</button>
                             </div>
                         </form>
 

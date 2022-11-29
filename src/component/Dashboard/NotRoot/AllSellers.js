@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const AllSellers = () => {
-    
-    const { data: Sellers = [],refetch } = useQuery({
+
+    const { data: Sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/sellers');
@@ -13,16 +13,29 @@ const AllSellers = () => {
     })
 
 
+    const veryFication = (data) => {
+ 
+        fetch(`http://localhost:5000/verifyUser?id=${data._id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+            })
+            
 
-    const handleDelet=(data)=>{
+    }
+
+
+    const handleDelet = (data) => {
         fetch(`http://localhost:5000/deleteBuyers?id=${data?._id}`, {
             method: 'DELETE'
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            refetch();
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch();
+            })
     }
 
 
@@ -35,19 +48,31 @@ const AllSellers = () => {
                         <th></th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Varification </th>
                         <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     {
-                        Sellers?.map((b,i) => <tr>
-                            <th>{i+1}</th>
+                        Sellers?.map((b, i) => <tr>
+                            <th>{i + 1}</th>
                             <td>{b?.Name}</td>
                             <td>{b?.Email}</td>
                             <th>
-                                <button onClick={()=>handleDelet(b)} className="btn btn-primary btn-xs">Delet Seller</button>
+                                <button onClick={() => handleDelet(b)} className="btn btn-primary btn-xs">Delet Seller</button>
                             </th>
+
+                            <button onClick={()=>veryFication(b)} className="btn btn-primary btn-xs">
+                                 {
+                                    b?.verification ?
+                                    <span>Verified</span>
+                                  
+                                    
+                                    :
+                                    <span>Click For Verfied</span>
+                                 }      
+                                    </button>
                         </tr>)
                     }
                 </tbody>
