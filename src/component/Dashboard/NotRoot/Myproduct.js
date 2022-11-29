@@ -6,8 +6,10 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Myproduct = () => {
     
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/sellerproduct?email=${user?.email}`
+    
 
+
+    const url = `http://localhost:5000/sellerproduct?email=${user?.email}`
     const { data: sellersProduct = [] } = useQuery({
         queryKey: ['sellerproduct', user?.email],
         queryFn: async () => {
@@ -16,6 +18,36 @@ const Myproduct = () => {
             return data;
         }
     })
+
+    console.log(sellersProduct)
+ 
+// sellersProduct?.forEach(myFunction);
+
+// function myFunction(item) {
+
+//     console.log(item?._id);
+    
+// }
+
+
+
+    const url2 = `http://localhost:5000/bookingfardin`;
+    const { data: booked = [] } = useQuery({
+        queryKey: ['booking'],
+        queryFn: async () => {
+            const res = await fetch(url2);
+            const data = await res.json();
+            return data;
+        }
+    })
+console.log(booked)
+    
+
+
+
+
+
+// console.log(booked)
 
     const handleAdvertise=(data)=>{
         fetch('http://localhost:5000/addadvertise', {
@@ -53,6 +85,7 @@ const Myproduct = () => {
                             <th>Mobile Name</th>
                             <th>Brandname</th>
                             <th>Price</th>
+                            <th>Status</th>
                             <th>Want Advertise? </th>
 
                         </tr>
@@ -60,8 +93,12 @@ const Myproduct = () => {
 
                    {
                      sellersProduct.map(phone=>  
+
+                             
+                            
+
                         <tbody>
-         
+                        
                                  <tr>
                                     
                                      <td>
@@ -79,7 +116,16 @@ const Myproduct = () => {
                                      </td>
 
                                      <td>{phone?.brandName}</td>
-                                     <td>{phone?.resalePrice}</td>           
+                                     <td>{phone?.resalePrice}</td>
+                                     <td>
+                                     {
+                                        phone?.Bookingstatus ? <small className='text-primary font-bold'>Booked</small>
+                                        :
+                                        <><small className='text-red-600 font-bold'>
+                                            Not yet
+                                            </small></>
+                                     }
+                                    </td>
                                      
                                      <th>
                                          <button onClick={()=>handleAdvertise(phone)} className="btn btn-primary btn-xs">advertised </button>
@@ -95,6 +141,7 @@ const Myproduct = () => {
                     <tfoot>
                         <tr>
 
+                            <th></th>
                             <th></th>
                             <th></th>
 

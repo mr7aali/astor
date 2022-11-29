@@ -5,3 +5,24 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 150px;
 }
+
+@media only screen and (min-width:1279px) and (max-width:1500px) {
+    .phone-container{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0;
+        
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width:1279px){
+    .phone-container{
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+    }
+}
+@media only screen and (min-width:281px) and (max-width:807px){
+    .phone-container{
+        grid-template-columns:1fr ;
+        padding: 0;
+    }
+}

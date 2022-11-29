@@ -7,6 +7,7 @@ import AllBuyers from "../component/Dashboard/NotRoot/AllBuyers";
 import AllSellers from "../component/Dashboard/NotRoot/AllSellers";
 import MyBuyers from "../component/Dashboard/NotRoot/MyBuyers";
 import Myproduct from "../component/Dashboard/NotRoot/Myproduct";
+import Err from "../component/Err/Err";
 import Home from "../component/Home/Home";
 import PrivetRout from "../component/PrivetRout/PrivetRout";
 import DashBoardLayout from "../Layout/DashBoardLayout";
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
             }
 
         ]
+    },
+    {
+        path:'*',
+        element:<Err></Err>
     }
 
 ]);

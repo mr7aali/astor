@@ -12,6 +12,17 @@ const Modeal = ({ modealData }) => {
 
     const { register, handleSubmit, reset } = useForm();
 
+
+
+    const hadleStutaus=(email) =>{
+        fetch(`http://localhost:5000/updateproductstatus?email=${email}`,{
+            method:'PUT'
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+
+    }
+
     const handleModeal = data => {
 
         const bookingDetails = {
@@ -20,7 +31,8 @@ const Modeal = ({ modealData }) => {
             Email: user?.email,
             picture: modealData?.picture,
             price: modealData?.resalePrice,
-            address: data.address
+            address: data.address,
+            sellerEmail:modealData.sellerEmail
         }
 
         fetch('http://localhost:5000/booking', {
@@ -33,13 +45,18 @@ const Modeal = ({ modealData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+               // console.log(data);
                 toast(`${modealData?.name} Booked Successfully `)
                 reset();
+                ////////////i have to update data status////////////
+                hadleStutaus(modealData.sellerEmail,modealData.picture,modealData.name);
+                //..........
+
             })
 
     }
-
+//onClick={()=>hadleStutaus(modealData.sellerEmail)}
+   
     return (
         <PrivetRout>
             <div>
@@ -66,7 +83,7 @@ const Modeal = ({ modealData }) => {
                             <input {...register("address")} type="text" placeholder=" type your preferable address" className="input input-bordered w-full mt-5" required />
 
                             <div className='mt-5 text-center w-full'>
-                                <button className="btn btn-outline w-full ">Click For Book</button>
+                                <button  className="btn btn-outline w-full ">Click For Book</button>
                             </div>
                         </form>
 
