@@ -12,8 +12,8 @@ const Banner = () => {
                     </div>
 
 
-                    <div className='absolute top-1/4 left-24 banner-h1'>
-                        <h1 className='text-6xl text-white font-bold '>Sell your mobile with  <br /> <span className='text-red-700'>Best price</span></h1>
+                    <div className='absolute sm:top-1/4 sm:left-5 md:top-1/4 md:left-24 banner-h1'>
+                        <h1 className='text-4xl md:text-6xl text-white font-bold '>Sell your mobile with  <br /> <span className='text-red-700'>Best price</span></h1>
                         <p className='text-white mt-5 text-xl'>Fortunately you've come to the right place! SellCell is the best place to sell phones, tablets and other mobile <br /> devices. We compare prices from all the leading cell phone buyers in the US to get you the most cash and also save <br /> you time and hassle. If you want to sell a phone or tablet then SellCell is the only site you need!</p>
                     </div>
 
@@ -34,8 +34,8 @@ const Banner = () => {
 
 
 
-                    <div className='absolute top-1/4 left-24 banner-h1'>
-                        <h1 className='text-6xl text-white font-bold '>    You can buy phone in <br /> <span className='text-red-700'>Cheapest Price</span></h1>
+                    <div className='absolute sm:top-1/4 sm:left-5 md:top-1/4 md:left-24 banner-h1'>
+                        <h1 className='text-4xl md:text-6xl text-white font-bold '>    You can buy phone in <br /> <span className='text-red-700'>Cheapest Price</span></h1>
                         <p className='text-white mt-5 text-xl'>Forget the spendy option and get a seriously great affordable smartphone instead.  I’ve tested dozens to find cheap smartphones <br />that perform where it counts and aren’t annoyingly slow. Our top pick, the Google Pixel 6A, <br /> is as good as almost any device, and our other choices strike a great balance between price and luxury.</p>
                     </div>
 
@@ -61,8 +61,8 @@ const Banner = () => {
 
 
 
-                    <div className='absolute top-1/4 left-24 banner-h1'>
-                        <h1 className='text-6xl text-white font-bold '>    You can easily  <br /> <span className='text-red-700'>Connect With Your Byer </span></h1>
+                    <div className='absolute sm:top-1/4 sm:left-5 md:top-1/4 md:left-24 banner-h1'>
+                        <h1 className='text-4xl md:text-6xl text-white font-bold '>    You can easily  <br /> <span className='text-red-700'>Connect With Your Byer </span></h1>
                         <p className='text-white mt-5 text-xl'>Generate leads, drive website traffic, and build brand awareness
 
 
@@ -87,7 +87,7 @@ const Banner = () => {
                     </div>
 
 
-                    <div className='absolute top-1/4 left-24 banner-h1'>
+                    <div className='absolute sm:top-1/4 sm:left-5 md:top-1/4 md:left-24 banner-h1'>
                         <h1 className='text-6xl text-white font-bold '>    You can buy phone in <br /> <span className='text-red-700'>Cheapest Price</span></h1>
                         <p className='text-white mt-5 text-xl'>Forget the spendy option and get a seriously great affordable smartphone instead.  I’ve tested dozens to find cheap smartphones <br />that perform where it counts and aren’t annoyingly slow. Our top pick, the Google Pixel 6A, <br /> is as good as almost any device, and our other choices strike a great balance between price and luxury.</p>
                     </div>
