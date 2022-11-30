@@ -34,7 +34,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <Link to={'/'} href=' ' className=" normal-case text-6xl font-bold">
-                        <img className='logo-img hidden lg:flex' src="https://i.ibb.co/N3QTn2f/images.png" alt="" srcset="" />
+                        <img className='logo-img hidden lg:flex' src="https://i.ibb.co/N3QTn2f/images.png" alt="" srcSet="" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
