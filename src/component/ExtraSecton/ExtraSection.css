@@ -1,0 +1,44 @@
+
+.offercontainer {
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: 50px;
+     
+  }
+  .offercontainer .container1 {
+     
+      background: url('https://i.ibb.co/KGZT0Hk/web-g27e2daaf2-1920.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 15px;
+  
+  }
+  
+  .offercontainer .container1 {
+     padding: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    
+     margin: 0 auto;
+  
+  }
+  
+  .offercontainer .container1 div h1 {
+      font-size: 50px;
+      font-weight: 900;
+      text-align: center;
+      color: white;
+      font-family:  sans-serif;
+      text-shadow: 3px 4px 7px #000(81,67,21,0.8);
+      line-height: 1.2;
+      text-shadow: 2px -23px 15px #CE5937;
+  }
+  
+  .offercontainer .container1 div h1 span{
+      color: rgb(196, 0, 0);
+  }
+  
