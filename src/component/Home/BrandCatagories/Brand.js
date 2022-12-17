@@ -27,7 +27,7 @@ const Brand = () => {
                 {
 
                     Brands?.map(b => <Link to={`/category/${b._id}`} key={b._id}>
-                        <div>
+                        <div className='single-Brand-container'>
                             <SingleBrand
 
                                 b={b}

@@ -1,4 +1,18 @@
-.brand-img{
+.brand-img {
   height: 256px;
-  
+}
+
+@media only screen and (min-width:0px) and (max-width:400px) {
+  .single-brand h1 {
+    font-size: 20px;
+  }
+  .brand-img{
+    height: 200px;
+    width: 200px;
+  }
+ .brand-container div{
+  margin: 0 ;
+
+ }
+ 
 }

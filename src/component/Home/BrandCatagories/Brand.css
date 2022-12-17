@@ -46,14 +46,14 @@
   /* @media only screen and (min-width:769px) and (max-width:1279px) */
   @media only screen and (max-width:1500px){
     .brand-container{
-     margin: 8px;
+       margin: 8px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 25px;
-      
+      grid-gap: 25px;  
     }
     .brand-container div{
       margin:  0 auto;
+     
       
       
     }
@@ -67,4 +67,25 @@
        grid-gap: 25px;
        
      }
+  }
+
+  
+  @media only screen and (min-width:0px) and (max-width:400px){
+  .brand-container{
+    margin: 0;
+   
+    
+  }
+  .allbrand h1{
+    font-size: 35px;
+   padding: 5px 0;
+  }
+  .single-Brand-container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+   
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import './ExtraSection.css'
 const  ExtraSection= () => {
     return (
-        <div id='#oferr'>
+        <div id='oferr'>
             <div className='container-div'>
                 <div className='offercontainer '>
                     <div className='container1 container '>
