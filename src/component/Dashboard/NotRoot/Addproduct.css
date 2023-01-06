@@ -1,17 +1,27 @@
-.addproduct-div{
-   padding: 50px 10px;
- 
-    
+.addproduct-div {
+    padding: 50px 10px;
+
+
     height: 100vh;
     margin: 0px auto;
 }
-.input-addproduct{
+
+.input-addproduct {
     border: 1px solid rgb(120, 108, 108);
     padding: 10px;
     border-radius: 5px;
     margin: 0 auto;
 }
-.input-addproduct input{
-   margin-top: 5px;
-   margin-bottom: 10px;
+
+.input-addproduct input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.drawer-for-open {
+    display: inline-block;
+    cursor: pointer;
+    
+    margin-left: 25px;
+
 }

@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 const postUser =(data)=>{
-    fetch('https://astor-server.vercel.app/user', {
+    fetch('http://localhost:5000/user', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

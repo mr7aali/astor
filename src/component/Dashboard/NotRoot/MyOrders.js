@@ -5,23 +5,31 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
-    const url = `https://astor-server.vercel.app/booking?email=${user?.email}`
+    const url = `http://localhost:5000/booking?email=${user?.email}`
 
     const { data: bookedIteams = [] } = useQuery({
         queryKey: ['booking', user?.email],
         queryFn: async () => {
-            const res = await fetch(url);
+            const res = await fetch(url,{
+                //jwt 
+                headers:{
+                    authorization: `Bearer ${localStorage.getItem('jwt-WebToken')}`
+                }
+            });
             const data = await res.json();
             return data;
         }
     })
-    console.log(bookedIteams[0]);
+    
     return (
         
         <div>
             <h1 className='text-4xl m-5 text-primary font-bold text-center'>My Orders</h1>
 
-
+            <label htmlFor="my-drawer-2" className=" drawer-for-open  drawer-button lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                
+            </label>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
 
@@ -39,8 +47,8 @@ const MyOrders = () => {
                     </thead>
 
                    {
-                    bookedIteams.map(phone=>  
-                        <tbody>
+                    bookedIteams?.map(phone=>  
+                        <tbody key={phone._id}>
          
                                  <tr>
                                     

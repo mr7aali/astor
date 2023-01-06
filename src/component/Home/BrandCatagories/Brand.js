@@ -6,7 +6,7 @@ const Brand = () => {
     const [Brands, setBrand] = useState(null);
     const [brandLoader, SetBrandLoader] = useState(true);
     useEffect(() => {
-        fetch('https://astor-server.vercel.app/brand')
+        fetch('http://localhost:5000/brand')
             .then(res => res.json())
             .then(data => {
                 setBrand(data);

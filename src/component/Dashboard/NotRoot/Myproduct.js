@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Myproduct = () => {
-    
+
     const { user } = useContext(AuthContext);
-    
 
 
-    const url = `https://astor-server.vercel.app/sellerproduct?email=${user?.email}`
+
+    const url = `http://localhost:5000/sellerproduct?email=${user?.email}`
     const { data: sellersProduct = [] } = useQuery({
         queryKey: ['sellerproduct', user?.email],
         queryFn: async () => {
@@ -20,18 +20,18 @@ const Myproduct = () => {
     })
 
     console.log(sellersProduct)
- 
-// sellersProduct?.forEach(myFunction);
 
-// function myFunction(item) {
+    // sellersProduct?.forEach(myFunction);
 
-//     console.log(item?._id);
-    
-// }
+    // function myFunction(item) {
+
+    //     console.log(item?._id);
+
+    // }
 
 
 
-    const url2 = `https://astor-server.vercel.app/bookingfardin`;
+    const url2 = `http://localhost:5000/bookingfardin`;
     const { data: booked = [] } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
@@ -40,17 +40,17 @@ const Myproduct = () => {
             return data;
         }
     })
-console.log(booked)
-    
+    console.log(booked)
 
 
 
 
 
-// console.log(booked)
 
-    const handleAdvertise=(data)=>{
-        fetch('https://astor-server.vercel.app/addadvertise', {
+    // console.log(booked)
+
+    const handleAdvertise = (data) => {
+        fetch('http://localhost:5000/addadvertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,19 +60,23 @@ console.log(booked)
         })
             .then(res => res.json())
             .then(data => {
-                
+
                 toast(`Added Successfully`)
-               
+
             })
     }
 
 
     return (
-           
-        <div>
+
+        <div className='drawer-container'>
+             
             <h1 className='text-4xl m-5 text-primary font-bold text-center'>My Orders</h1>
-
-
+           
+            <label htmlFor="my-drawer-2" className=" drawer-for-open  drawer-button lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                
+            </label>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
 
@@ -91,53 +95,53 @@ console.log(booked)
                         </tr>
                     </thead>
 
-                   {
-                     sellersProduct.map(phone=>  
+                    {
+                        sellersProduct.map(phone =>
 
-                             
-                            
 
-                        <tbody>
-                        
-                                 <tr>
-                                    
-                                     <td>
-                                         <div className="flex items-center space-x-3">
-                                             <div className="avatar">
-                                                 <div className="mask mask-squircle w-12 h-12">
-                                                     <img src={phone?.picture} alt="Avatar Tailwind CSS Component" />
-                                                 </div>
-                                             </div>
-                                             <div>
-                                                 <div className="font-bold">{phone?.name}</div>
-                                                 <div className="text-sm opacity-50">{phone?.brandName}</div>
-                                             </div>
-                                         </div>
-                                     </td>
 
-                                     <td>{phone?.brandName}</td>
-                                     <td>{phone?.resalePrice}</td>
-                                     <td>
-                                     {
-                                        phone?.Bookingstatus ? <small className='text-primary font-bold'>Booked</small>
-                                        :
-                                        <><small className='text-red-600 font-bold'>
-                                            Not yet
-                                            </small></>
-                                     }
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={phone?.picture} alt="Avatar Tailwind CSS Component" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="font-bold">{phone?.name}</div>
+                                                <div className="text-sm opacity-50">{phone?.brandName}</div>
+                                            </div>
+                                        </div>
                                     </td>
-                                     
-                                     <th>
-                                         <button onClick={()=>handleAdvertise(phone)} className="btn btn-primary btn-xs">advertised </button>
-                                     </th>
-                                 </tr>
-         
-                             
-         
-                               
-                                 </tbody>
-                                 )
-                   }
+
+                                    <td>{phone?.brandName}</td>
+                                    <td>{phone?.resalePrice}</td>
+                                    <td>
+                                        {
+                                            phone?.Bookingstatus ? <small className='text-primary font-bold'>Booked</small>
+                                                :
+                                                <><small className='text-red-600 font-bold'>
+                                                    Not yet
+                                                </small></>
+                                        }
+                                    </td>
+
+                                    <th>
+                                        <button onClick={() => handleAdvertise(phone)} className="btn btn-primary btn-xs">advertised </button>
+                                    </th>
+                                </tr>
+
+
+
+
+                            </tbody>
+                        )
+                    }
                     <tfoot>
                         <tr>
 

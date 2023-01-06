@@ -40,6 +40,22 @@ const Login = () => {
         .then(result=>{
             const user = result.user;
             console.log(user);
+
+                console.log('User login');
+                fetch('http://localhost:5000/jwt',{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body: JSON.stringify(user)               
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                    localStorage.setItem('jwt-WebToken',undefined);
+                    localStorage.setItem('jwt-WebToken',data.token);
+                })
+
             navigate(from, { replace: true });
             toast(`Hi,${user?.displayName} Welcome to Astor`);
             const data={
@@ -55,19 +71,19 @@ const Login = () => {
         <div className='login-page '>
 
 
-            <div class="background">
-                <div class="shape"></div>
-                <div class="shape"></div>
+            <div className="background">
+                <div className="shape"></div>
+                <div className="shape"></div>
             </div>
             <form className='login-from' onSubmit={handleSubmit(handleLogIN)}>
                 <h3>Login Here</h3>
 
-                <label className='login-label' for="username">Email</label>
+                <label className='login-label' htmlFor="username">Email</label>
                 <input className='login-input' {...register("Email",{
                 
                 })} type="text" placeholder="Login with your email" id="username"  required/>
 
-                <label className='login-label' for="password">Password</label>
+                <label className='login-label' htmlFor="password">Password</label>
 
                 <input className='login-input' {...register("password",{
                   
