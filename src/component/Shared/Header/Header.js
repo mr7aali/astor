@@ -29,19 +29,13 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
     const { user, LogOut } = useContext(AuthContext);
-    const navigate = useNavigate();
+   
+    ;
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    const goto = (pageName) => {
-        const currentPath = pageName;
-        if(currentPath==='Home'){
-           return navigate('/');
-        }
-        setAnchorElUser(null);
-        navigate(currentPath);
-    }
+   
 
 
     const handleOpenNavMenu = (event) => {
@@ -206,17 +200,13 @@ const Header = () => {
                         >
                             LOGO
                         </Typography>
-                        <Box sx={{ flexGrow: 1, border:'1px solid red', display: { xs: 'none', md: 'flex' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                           
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={()=>goto(page)}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
-                                    {page}
-                                </Button>
-                            ))}
+                           
+                                <Link to='/'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button></Link>
+                                <Link to='/dashboard'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Dashboard</Button></Link>
+                                <Link to='/blog'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Blog</Button></Link>
+                          
                             
                         </Box>
                         
@@ -224,7 +214,7 @@ const Header = () => {
                            
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <Avatar alt="Remy Sharp" src={user?.photoURL} />
                                 </IconButton>
                             </Tooltip>
 
@@ -245,11 +235,11 @@ const Header = () => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {settings.map((setting) => (
-                                    <MenuItem key={setting} onClick={() => goto(setting)}>
-                                        <Typography textAlign="center">{setting}</Typography>
+                               
+                                    <MenuItem  onClick={LogOut}>
+                                        <Typography  textAlign="center">Logout</Typography>
                                     </MenuItem>
-                                ))}
+                               
                             </Menu>
                         </Box>
                        
