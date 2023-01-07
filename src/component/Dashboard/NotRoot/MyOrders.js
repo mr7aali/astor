@@ -4,7 +4,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 
 const MyOrders = () => {
-    const { user } = useContext(AuthContext);
+    const { user,LogOut } = useContext(AuthContext);
     const url = `http://localhost:5000/booking?email=${user?.email}`
 
     const { data: bookedIteams = [] } = useQuery({
@@ -16,11 +16,15 @@ const MyOrders = () => {
                     authorization: `Bearer ${localStorage.getItem('jwt-WebToken')}`
                 }
             });
+
+            if(res.status === 401 || res.status === 403){
+               return LogOut();
+            }
             const data = await res.json();
             return data;
         }
     })
-    
+    console.log(bookedIteams);
     return (
         
         <div>
@@ -48,7 +52,7 @@ const MyOrders = () => {
 
                    {
                     bookedIteams?.map(phone=>  
-                        <tbody key={phone._id}>
+                        <tbody key={phone?._id}>
          
                                  <tr>
                                     

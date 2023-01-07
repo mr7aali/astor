@@ -43,8 +43,8 @@ const Modeal = ({ modealData,refetch  }) => {
             Email: user?.email,
             picture: modealData?.picture,
             price: modealData?.resalePrice,
-            address: data.address,
-            sellerEmail: modealData.sellerEmail,
+            address: data?.address,
+            sellerEmail: modealData?.sellerEmail,
         }
 
         fetch('http://localhost:5000/booking', {
