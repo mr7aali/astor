@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import './Banner.css';
-
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 
@@ -19,8 +18,8 @@ const Banner = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
+          delay: 2550,
+          disableOnInteraction: true,
         }}
         pagination={{
           clickable: true,
@@ -29,8 +28,6 @@ const Banner = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-
-
         <SwiperSlide>
           <div className="img-gradient">
             <img alt=' ' src="https://i.ibb.co/z72P1K6/pexels-jess-bailey-designs-788946.jpg" className=" " />
@@ -64,9 +61,6 @@ const Banner = () => {
            Marketing on LinkedIn helps <br /> you engage a community of professionals to drive actions <span className='extra'>that are relevant to your business.</span> </p>
           </div>
         </SwiperSlide>
-
-
-
 
       </Swiper>
     </div>
