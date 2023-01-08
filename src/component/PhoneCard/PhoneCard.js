@@ -94,14 +94,6 @@ const PhoneCard = ({ phone }) => {
                     </Typography>
                 </Box>
 
-
-               
-
-
-
-
-
-
                 <Box sx={{ display: 'grid' , gridTemplateColumns: '1fr 1fr' }}>
                     <Box  ox sx={{borderRight:'1px solid #ADA5A2'}}>
                         <Typography variant="body2" color="text.secondary">

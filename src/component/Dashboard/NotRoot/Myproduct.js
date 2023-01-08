@@ -9,7 +9,7 @@ const Myproduct = () => {
 
 
 
-    const url = `http://localhost:5000/sellerproduct?email=${user?.email}`
+    const url = `https://astor-server.vercel.app/sellerproduct?email=${user?.email}`
     const { data: sellersProduct = [] } = useQuery({
         queryKey: ['sellerproduct', user?.email],
         queryFn: async () => {
@@ -31,7 +31,7 @@ const Myproduct = () => {
 
 
 
-    const url2 = `http://localhost:5000/bookingfardin`;
+    const url2 = `https://astor-server.vercel.app/bookingfardin`;
     const { data: booked = [] } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
@@ -50,7 +50,7 @@ const Myproduct = () => {
     // console.log(booked)
 
     const handleAdvertise = (data) => {
-        fetch('http://localhost:5000/addadvertise', {
+        fetch('https://astor-server.vercel.app/addadvertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

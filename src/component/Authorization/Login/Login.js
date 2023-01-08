@@ -42,7 +42,7 @@ const Login = () => {
             console.log(user);
 
                 console.log('User login');
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://astor-server.vercel.app/jwt',{
                     method:'POST',
                     headers:{
                         'content-type':'application/json'
