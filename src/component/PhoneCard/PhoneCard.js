@@ -55,7 +55,12 @@ const PhoneCard = ({ phone }) => {
 
         
 
-        <Card sx={{ maxWidth: 345, position:'relative' }}>
+        <Card sx={{ 
+            maxWidth: 345, 
+            position:'relative',
+            margin:'20px auto',
+            boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
+             }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

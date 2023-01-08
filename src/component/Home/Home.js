@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Brand></Brand>
-            <ExtraSection></ExtraSection>
+            <Brand></Brand>           
             <Advertice></Advertice>
+            <ExtraSection></ExtraSection>
         </div>
     );
 };

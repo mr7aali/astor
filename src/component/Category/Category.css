@@ -1,6 +1,6 @@
 .phone-container{
     margin-top: 100px;
-   
+  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 150px;
@@ -10,6 +10,7 @@
     .phone-container{
         grid-template-columns: 1fr 1fr 1fr;
         padding: 0;
+        
         
     }
 }
@@ -24,5 +25,6 @@
     .phone-container{
         grid-template-columns:1fr ;
         padding: 0;
+        border: 1px solid red;
     }
 }
