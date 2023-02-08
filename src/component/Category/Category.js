@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Modeal from '../Mdeal/Modeal';
@@ -9,7 +9,7 @@ const Category = () => {
     const phones = useLoaderData();
     //test const [modeal,setModeal]= useState(null);
    const {modeal}=useContext(AuthContext);
-
+   console.log(phones);
     
     return (
         <div className='phone-container max-w-screen-2xl mx-auto '>

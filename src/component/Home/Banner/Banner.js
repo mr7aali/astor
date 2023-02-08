@@ -13,7 +13,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 const Banner = () => {
   return (
-    <div className=" max-w-screen-2xl mx-auto ">
+    <div className="  ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -12,7 +12,7 @@ const DashBoardLayout = () => {
     const [dbUser, setdbUser] = useState();
     const [loader, setLoader] = useState(true);
     useEffect(() => {
-        const url = `https://astor-server.vercel.app/userrol?email=${user?.email}`
+        const url = `http://localhost:5000/userrol?email=${user?.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

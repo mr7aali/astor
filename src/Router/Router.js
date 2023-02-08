@@ -3,7 +3,7 @@ import LogOut from "../component/Authorization/LogOut/Resister";
 import Blog from "../component/Blog/Blog";
 import Category from "../component/Category/Category";
 import Dashboard from "../component/Dashboard/Dashboard";
-import AllBuyers from "../component/Dashboard/NotRoot/AllBuyers";
+
 import AllSellers from "../component/Dashboard/NotRoot/AllSellers";
 import MyBuyers from "../component/Dashboard/NotRoot/MyBuyers";
 import Myproduct from "../component/Dashboard/NotRoot/Myproduct";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`https://astor-server.vercel.app/categorys/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/categorys/${params.id}`)
             },
             {
                 path:'/blog',

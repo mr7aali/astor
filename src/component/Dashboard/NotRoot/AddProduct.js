@@ -17,6 +17,7 @@ const AddProduct = () => {
 
 
     const { user } = useContext(AuthContext);
+
     const { register, reset, handleSubmit } = useForm();
     const imgHostKey = process.env.REACT_APP_imgbb_key;
 
@@ -41,6 +42,7 @@ const AddProduct = () => {
                         location: data.location,
                         resalePrice: data.resalePrice,
                         sellerName: user?.displayName,
+                        sellerPhoto:user?.photoURL,
                         originalPrice: data.originalPrice,
                         yearsOfUse: data.yearsOfUse,
                         postedTime: date,
@@ -51,7 +53,7 @@ const AddProduct = () => {
                     }
                    
                    
-                    fetch('https://astor-server.vercel.app/addproduct', {
+                    fetch('http://localhost:5000/addproduct', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

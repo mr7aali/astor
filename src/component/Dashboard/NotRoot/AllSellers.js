@@ -6,7 +6,7 @@ const AllSellers = () => {
     const { data: Sellers = [], refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('https://astor-server.vercel.app/sellers');
+            const res = await fetch('http://localhost:5000/sellers');
             const data = await res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const AllSellers = () => {
 
     const veryFication = (data) => {
  
-        fetch(`https://astor-server.vercel.app/verifyUser?id=${data._id}`, {
+        fetch(`http://localhost:5000/verifyUser?id=${data._id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const AllSellers = () => {
 
 
     const handleDelet = (data) => {
-        fetch(`https://astor-server.vercel.app/deleteBuyers?id=${data?._id}`, {
+        fetch(`http://localhost:5000/deleteBuyers?id=${data?._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

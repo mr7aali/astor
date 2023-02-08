@@ -30,11 +30,15 @@ const AuthProvider = ({ children }) => {
     const LogOut=()=>{
         return signOut(auth);
     }
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
         });
+
+        
         return () => unsubscribe();
     }, [])
     const authInfo = {loading,sethandleDelet ,handleDelet, createUser, logIn,singWithGoogle, user,LogOut,setModeal,modeal }

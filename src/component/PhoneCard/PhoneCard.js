@@ -1,4 +1,4 @@
-import { Button, Divider } from '@mui/material';
+import { Button } from '@mui/material';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
@@ -8,23 +8,19 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 import './PhoneCard.css';
 import { Box } from '@mui/system';
+import { useQuery } from '@tanstack/react-query';
 
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
-  
+
     return <IconButton {...other} />;
 })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -37,8 +33,26 @@ const ExpandMore = styled((props) => {
 
 
 const PhoneCard = ({ phone }) => {
-    
+
     const [expanded, setExpanded] = React.useState(false);
+
+    
+
+   const DeletePhone=()=>{
+    fetch(`http://localhost:5000/deletePhone?id=${phone._id}`,{
+        method:'DELETE'
+    })
+
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+        
+    })
+
+   
+
+   }
+
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -53,28 +67,33 @@ const PhoneCard = ({ phone }) => {
     return (
 
 
-        
 
-        <Card sx={{ 
-            maxWidth: 345, 
-            position:'relative',
-            margin:'20px auto',
+
+        <Card sx={{
+            maxWidth: 345,
+            position: 'relative',
+            margin: '20px auto',
             boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
-             }}>
+        }}>
             <CardHeader
                 avatar={
+                    // <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                    //     R
+                    // </Avatar>
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                         R
                     </Avatar>
+
+
                 }
                 action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
+                    <IconButton onClick={DeletePhone} color='error' aria-label="settings">
+                      <DeleteSweepIcon/>
                     </IconButton>
                 }
                 title={sellerName}
-              
-             
+
+
                 subheader={postedTime}
             />
             <CardMedia
@@ -99,39 +118,40 @@ const PhoneCard = ({ phone }) => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: 'grid' , gridTemplateColumns: '1fr 1fr' }}>
-                    <Box  ox sx={{borderRight:'1px solid #ADA5A2'}}>
+                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+                    <Box ox sx={{  }}>
                         <Typography variant="body2" color="text.secondary">
-                        Asking Price: {resalePrice}$
+                            Asking Price: {resalePrice}$
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Used: {yearsOfUse}y
-                        </Typography>
-                        <Typography  variant="body2" color="text.secondary">
-                        Seller: {sellerName }  { phone?.isVerified &&
-                  <TaskAltIcon/> 
-                   }
+                            Used: {yearsOfUse}y
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                     
-                        Location: {location}
+                            Seller: {sellerName}  {phone?.isVerified &&
+                                <TaskAltIcon />
+                            }
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+
+                            Location: {location}
                         </Typography>
                     </Box>
-                    <Box sx={{marginLeft:'5px'}} >
+
+                    <Box sx={{ marginLeft: '5px' }} >
                         <Typography variant="body2" color="text.secondary">
-                        Original Price: {phone.originalPrice}$
+                            Original Price: {phone.originalPrice}$
                         </Typography>
-    
+
                     </Box>
                 </Box>
 
 
             </CardContent>
-            <CardActions sx={{ height:'50px'}} disableSpacing>
+            <CardActions sx={{ height: '50px' }} disableSpacing>
 
 
 
-               
+
 
 
 
@@ -139,25 +159,25 @@ const PhoneCard = ({ phone }) => {
             </CardActions>
 
             <Button
-                    variant="contained"
-                    color="error"
-                    fullWidth
-                    sx={{
-                        cursor: 'default',
-                        position:'absolute',
-                        bottom:'0px',
-                       
+                variant="contained"
+                color="error"
+                fullWidth
+                sx={{
+                    cursor: 'default',
+                    position: 'absolute',
+                    bottom: '0px',
 
 
+
+                }}
+            >
+                <label
+                    style={{
+                        cursor: 'pointer',
+                        width: '100%'
                     }}
-                >
-                    <label
-                        style={{
-                            cursor: 'pointer',
-                            width: '100%'
-                        }}
-                        onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
-                </Button>
+                    onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
+            </Button>
 
         </Card>
 

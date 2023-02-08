@@ -1,8 +1,6 @@
 .offercontainer {
     margin: 0 auto;
-    border-radius: 15px;
     margin-top: 50px;
-
 }
 
 .offercontainer .container1 {
@@ -11,21 +9,17 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    border-radius: 15px;
-
-
+   
 }
 
 .offercontainer .container1 {
-    padding: 40px;
+    padding: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin: 0 auto;
-
 }
 
 .offercontainer .container1 div h1 {
