@@ -27,30 +27,38 @@
      height: 70vh;
      object-fit: cover;
  }
+
+
  .Banner-Blg-container{
     position: absolute;
     top: 20%;
     margin-left: 150px;  
  }
  
+
+
   .swiper-pagination-bullet {
     width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,80px));
     height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,8px));
     display: inline-block;
     border-radius: 0% !important;
-    
-    background: var(--swiper-pagination-bullet-inactive-color,#000);
+    border: 1px solid black;
+    background: var(--swiper-pagination-bullet-inactive-color,#ffffff);
     opacity: var(--swiper-pagination-bullet-inactive-opacity, .5);
 } 
+
+
 
 .swiper-pagination-bullet-active {
     opacity: var(--swiper-pagination-bullet-opacity, 1);
     background: var(--swiper-pagination-color,var(--swiper-theme-color));
+    border: none;
 }
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: 00px;
+    bottom: 10px;
     left: 0;
     width: 100%;
-    background-color: white;
+    
+    
 
 }

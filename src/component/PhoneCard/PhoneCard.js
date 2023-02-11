@@ -73,7 +73,8 @@ const PhoneCard = ({ phone }) => {
             maxWidth: 345,
             position: 'relative',
             margin: '20px auto',
-            boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
+            // boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
+            background:"#F3F4F6"
         }}>
             <CardHeader
                 avatar={
@@ -94,7 +95,7 @@ const PhoneCard = ({ phone }) => {
                 title={sellerName}
 
 
-                subheader={postedTime}
+                subheader={location}
             />
             <CardMedia
                 component="img"
@@ -118,7 +119,9 @@ const PhoneCard = ({ phone }) => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+
+
+                {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
                     <Box ox sx={{  }}>
                         <Typography variant="body2" color="text.secondary">
                             Asking Price: {resalePrice}$
@@ -143,7 +146,14 @@ const PhoneCard = ({ phone }) => {
                         </Typography>
 
                     </Box>
+                </Box> */}
+                <Box>
+                    <Typography>
+                        i
+                    </Typography>
                 </Box>
+
+
 
 
             </CardContent>
@@ -158,15 +168,15 @@ const PhoneCard = ({ phone }) => {
 
             </CardActions>
 
-            <Button
+            {/* <Button
                 variant="contained"
                 color="error"
                 fullWidth
                 sx={{
                     cursor: 'default',
-                    position: 'absolute',
-                    bottom: '0px',
-
+                    // position: 'absolute',
+                    // bottom: '0px',
+                   
 
 
                 }}
@@ -177,7 +187,7 @@ const PhoneCard = ({ phone }) => {
                         width: '100%'
                     }}
                     onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
-            </Button>
+            </Button> */}
 
         </Card>
 
