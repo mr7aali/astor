@@ -10,8 +10,9 @@ const SubBanner = () => {
     return (
 
         <div style={{
-            padding: '80px 0',
+            padding: '80px 0px',
             // background:"#DBF7F6"
+           // border:'1px solid red'
         }}>
             <div className='Sub-banner-container  md:gap-4 max-w-screen-xl mx-auto md:grid md:grid-cols-12 '>
                 <div className='box col-span-4 h-[300px] shadow-md'>

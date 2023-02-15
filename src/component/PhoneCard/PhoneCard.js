@@ -39,7 +39,7 @@ const PhoneCard = ({ phone }) => {
     
 
    const DeletePhone=()=>{
-    fetch(`http://localhost:5000/deletePhone?id=${phone._id}`,{
+    fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deletePhone?id=${phone._id}`,{
         method:'DELETE'
     })
 
@@ -69,127 +69,130 @@ const PhoneCard = ({ phone }) => {
 
 
 
-        <Card sx={{
-            maxWidth: 345,
-            position: 'relative',
-            margin: '20px auto',
-            // boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
-            background:"#F3F4F6"
-        }}>
-            <CardHeader
-                avatar={
-                    // <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                    //     R
-                    // </Avatar>
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
-                    </Avatar>
+        // <Card sx={{
+        //     maxWidth: 345,
+        //     position: 'relative',
+        //     margin: '20px auto',
+        //     // boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
+        //     background:"#F3F4F6"
+        // }}>
+        //     <CardHeader
+        //         avatar={
+        //             // <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+        //             //     R
+        //             // </Avatar>
+        //             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+        //                 R
+        //             </Avatar>
 
 
-                }
-                action={
-                    <IconButton onClick={DeletePhone} color='error' aria-label="settings">
-                      <DeleteSweepIcon/>
-                    </IconButton>
-                }
-                title={sellerName}
+        //         }
+        //         action={
+        //             <IconButton onClick={DeletePhone} color='error' aria-label="settings">
+        //               <DeleteSweepIcon/>
+        //             </IconButton>
+        //         }
+        //         title={sellerName}
 
 
-                subheader={location}
-            />
-            <CardMedia
-                component="img"
-                // height="194"
-                sx={{ height: '200px' }}
-                image={phone?.picture}
-                alt="Paella dish"
-            />
-            <CardContent>
+        //         subheader={location}
+        //     />
+        //     <CardMedia
+        //         component="img"
+        //         // height="194"
+        //         sx={{ height: '200px' }}
+        //         image={phone?.picture}
+        //         alt="Paella dish"
+        //     />
+        //     <CardContent>
 
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                }}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name}
-                    </Typography>
-                    <Typography gutterBottom variant="p" component="div">
-                        <span style={{ color: 'blue', fontWeight: '500' }}>{resalePrice}$</span>
-                    </Typography>
-                </Box>
-
-
-
-                {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-                    <Box ox sx={{  }}>
-                        <Typography variant="body2" color="text.secondary">
-                            Asking Price: {resalePrice}$
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Used: {yearsOfUse}y
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Seller: {sellerName}  {phone?.isVerified &&
-                                <TaskAltIcon />
-                            }
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-
-                            Location: {location}
-                        </Typography>
-                    </Box>
-
-                    <Box sx={{ marginLeft: '5px' }} >
-                        <Typography variant="body2" color="text.secondary">
-                            Original Price: {phone.originalPrice}$
-                        </Typography>
-
-                    </Box>
-                </Box> */}
-                <Box>
-                    <Typography>
-                        i
-                    </Typography>
-                </Box>
+        //         <Box sx={{
+        //             display: 'flex',
+        //             alignItems: 'center',
+        //             justifyContent: 'space-between'
+        //         }}>
+        //             <Typography gutterBottom variant="h5" component="div">
+        //                 {name}
+        //             </Typography>
+        //             <Typography gutterBottom variant="p" component="div">
+        //                 <span style={{ color: 'blue', fontWeight: '500' }}>{resalePrice}$</span>
+        //             </Typography>
+        //         </Box>
 
 
 
+        //         {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+        //             <Box ox sx={{  }}>
+        //                 <Typography variant="body2" color="text.secondary">
+        //                     Asking Price: {resalePrice}$
+        //                 </Typography>
+        //                 <Typography variant="body2" color="text.secondary">
+        //                     Used: {yearsOfUse}y
+        //                 </Typography>
+        //                 <Typography variant="body2" color="text.secondary">
+        //                     Seller: {sellerName}  {phone?.isVerified &&
+        //                         <TaskAltIcon />
+        //                     }
+        //                 </Typography>
+        //                 <Typography variant="body2" color="text.secondary">
 
-            </CardContent>
-            <CardActions sx={{ height: '50px' }} disableSpacing>
+        //                     Location: {location}
+        //                 </Typography>
+        //             </Box>
+
+        //             <Box sx={{ marginLeft: '5px' }} >
+        //                 <Typography variant="body2" color="text.secondary">
+        //                     Original Price: {phone.originalPrice}$
+        //                 </Typography>
+
+        //             </Box>
+        //         </Box> */}
+        //         <Box>
+        //             <Typography>
+        //                 i
+        //             </Typography>
+        //         </Box>
 
 
 
+
+        //     </CardContent>
+        //     <CardActions sx={{ height: '50px' }} disableSpacing>
 
 
 
 
 
-            </CardActions>
 
-            {/* <Button
-                variant="contained"
-                color="error"
-                fullWidth
-                sx={{
-                    cursor: 'default',
-                    // position: 'absolute',
-                    // bottom: '0px',
+
+
+        //     </CardActions>
+
+        //     {/* <Button
+        //         variant="contained"
+        //         color="error"
+        //         fullWidth
+        //         sx={{
+        //             cursor: 'default',
+        //             // position: 'absolute',
+        //             // bottom: '0px',
                    
 
 
-                }}
-            >
-                <label
-                    style={{
-                        cursor: 'pointer',
-                        width: '100%'
-                    }}
-                    onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
-            </Button> */}
+        //         }}
+        //     >
+        //         <label
+        //             style={{
+        //                 cursor: 'pointer',
+        //                 width: '100%'
+        //             }}
+        //             onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
+        //     </Button> */}
 
-        </Card>
+        // </Card>
+        <div>
+            <h1>This is card</h1>
+        </div>
 
     );
 };
