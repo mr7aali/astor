@@ -26,6 +26,6 @@
     .phone-container{
         grid-template-columns:1fr ;
         padding: 0;
-        border: 1px solid red;
+        
     }
 }

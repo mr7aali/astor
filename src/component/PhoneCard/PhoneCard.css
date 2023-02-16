@@ -85,6 +85,7 @@
 
 .el-wrapper:hover .info-inner {
   bottom: 155px;
+
 }
 
 .el-wrapper:hover .a-size {
@@ -200,9 +201,11 @@
   position: absolute;
   width: 100%;
   bottom: -20px;
+ 
   font-family: 'PT Sans', sans-serif;
   color: #828282;
   opacity: 0;
+ 
 }
 
 .a-size .size {

@@ -45,7 +45,7 @@ const PhoneCard = ({ phone }) => {
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
     </svg>
     const { setModeal } = useContext(AuthContext);
-    const { location, name, postedTime, resalePrice, sellerName, yearsOfUse,brandName ,picture} = phone;
+    const { location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
     return (
         // container
         <div class=" page-wrapper ">
@@ -53,14 +53,18 @@ const PhoneCard = ({ phone }) => {
                 <div class="row">
                     <div class="el-wrapper shadow-lg">
                         <div class="box-up">
-                            <img class="img" src={picture} alt=""/>
-                                <div class="img-info">
-                                    <div class="info-inner">
-                                        <span class="p-name">{name} </span>
-                                        <span class="p-company"> {brandName}</span>
-                                    </div>
-                                    <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+                            <img class="img" src={picture} alt="" />
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">{name} </span>
+                                    <span class="p-company"> {brandName}</span>
                                 </div>
+                                <div class="a-size">
+                                    <span class="size">{location}</span>
+                                    
+                                </div>
+                               
+                            </div>
                         </div>
 
                         <div class="box-down">
@@ -72,6 +76,7 @@ const PhoneCard = ({ phone }) => {
                                 <span class="price">$ {resalePrice}</span>
                                 <span class="add-to-cart">
                                     <span class="txt">Add in cart</span>
+                                    
                                 </span>
                             </a>
                         </div>
