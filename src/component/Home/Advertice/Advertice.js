@@ -1,3 +1,4 @@
+import { Box } from '@mui/system';
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
@@ -8,9 +9,9 @@ import './advertage.css'
 
 
 const Advertice = () => {
-    const {modeal}=useContext(AuthContext);
-   
-    const { data: advertise = [],refetch } = useQuery({
+    const { modeal } = useContext(AuthContext);
+
+    const { data: advertise = [], refetch } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
             const res = await fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/advertise');
@@ -21,30 +22,35 @@ const Advertice = () => {
 
 
 
-   
-   
-    return (
-        <div>
 
-            
-            <div className='mt-10'>
-                { advertise.length? 
-                    <h1 className='text-5xl font-bold text-center pt-10  '>Advertising <span className='text-primary'>Iteams</span></h1>
-                    :
-                    <></>
+
+    return (
+        <Box sx={{
+          background:'#E2EFFB',
+      
+        }}>
+
+
+            <div className='pb-20'>
+                {advertise.length &&
+                    <div>
+                        <h1 className='text-5xl text-[#000] font-bold text-center pt-10  '> Flash Deal </h1>
+                        <p className='text-xl text-center pt-10 text-[#000]'>Get Your Desired Product from Flash Deal !</p>
+                    </div>
+
                 }
                 <div className='advertised-iteams max-w-screen-2xl mx-auto phone-container'>
-        {
-           advertise.map(a=><PhoneCard
-           phone={a}
-           key={a._id}
-           ></PhoneCard>)
-        }
-        <Modeal
-         modealData={modeal}
-         refetch ={refetch }
-        >
-        </Modeal>
+                    {
+                        advertise.map(a => <PhoneCard
+                            phone={a}
+                            key={a._id}
+                        ></PhoneCard>)
+                    }
+                    <Modeal
+                        modealData={modeal}
+                        refetch={refetch}
+                    >
+                    </Modeal>
 
 
                 </div>
@@ -52,7 +58,7 @@ const Advertice = () => {
             </div>
 
 
-        </div>
+        </Box>
     );
 };
 

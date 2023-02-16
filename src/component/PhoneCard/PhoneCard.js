@@ -22,7 +22,6 @@ const ExpandMore = styled((props) => {
 const PhoneCard = ({ phone }) => {
 
     const [expanded, setExpanded] = React.useState(false);
-    console.log(phone);
     const DeletePhone = () => {
         fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deletePhone?id=${phone._id}`, {
             method: 'DELETE'
