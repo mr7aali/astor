@@ -1,21 +1,8 @@
-import { Button } from '@mui/material';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import './PhoneCard.css';
-import { Box } from '@mui/system';
-import { useQuery } from '@tanstack/react-query';
 
 
 const ExpandMore = styled((props) => {
@@ -35,23 +22,18 @@ const ExpandMore = styled((props) => {
 const PhoneCard = ({ phone }) => {
 
     const [expanded, setExpanded] = React.useState(false);
+    console.log(phone);
+    const DeletePhone = () => {
+        fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deletePhone?id=${phone._id}`, {
+            method: 'DELETE'
+        })
 
-    
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
 
-   const DeletePhone=()=>{
-    fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deletePhone?id=${phone._id}`,{
-        method:'DELETE'
-    })
-
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data);
-        
-    })
-
-   
-
-   }
+            })
+    }
 
 
     const handleExpandClick = () => {
@@ -63,135 +45,39 @@ const PhoneCard = ({ phone }) => {
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
     </svg>
     const { setModeal } = useContext(AuthContext);
-    const { location, name, postedTime, resalePrice, sellerName, yearsOfUse } = phone;
+    const { location, name, postedTime, resalePrice, sellerName, yearsOfUse,brandName ,picture} = phone;
     return (
+        // container
+        <div class=" page-wrapper ">
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper shadow-lg">
+                        <div class="box-up">
+                            <img class="img" src={picture} alt=""/>
+                                <div class="img-info">
+                                    <div class="info-inner">
+                                        <span class="p-name">{name} </span>
+                                        <span class="p-company"> {brandName}</span>
+                                    </div>
+                                    <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+                                </div>
+                        </div>
 
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
 
-
-
-        // <Card sx={{
-        //     maxWidth: 345,
-        //     position: 'relative',
-        //     margin: '20px auto',
-        //     // boxShadow: "1px 5px 24px -4px rgba(0,0,0,0.75)"
-        //     background:"#F3F4F6"
-        // }}>
-        //     <CardHeader
-        //         avatar={
-        //             // <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-        //             //     R
-        //             // </Avatar>
-        //             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-        //                 R
-        //             </Avatar>
-
-
-        //         }
-        //         action={
-        //             <IconButton onClick={DeletePhone} color='error' aria-label="settings">
-        //               <DeleteSweepIcon/>
-        //             </IconButton>
-        //         }
-        //         title={sellerName}
-
-
-        //         subheader={location}
-        //     />
-        //     <CardMedia
-        //         component="img"
-        //         // height="194"
-        //         sx={{ height: '200px' }}
-        //         image={phone?.picture}
-        //         alt="Paella dish"
-        //     />
-        //     <CardContent>
-
-        //         <Box sx={{
-        //             display: 'flex',
-        //             alignItems: 'center',
-        //             justifyContent: 'space-between'
-        //         }}>
-        //             <Typography gutterBottom variant="h5" component="div">
-        //                 {name}
-        //             </Typography>
-        //             <Typography gutterBottom variant="p" component="div">
-        //                 <span style={{ color: 'blue', fontWeight: '500' }}>{resalePrice}$</span>
-        //             </Typography>
-        //         </Box>
-
-
-
-        //         {/* <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-        //             <Box ox sx={{  }}>
-        //                 <Typography variant="body2" color="text.secondary">
-        //                     Asking Price: {resalePrice}$
-        //                 </Typography>
-        //                 <Typography variant="body2" color="text.secondary">
-        //                     Used: {yearsOfUse}y
-        //                 </Typography>
-        //                 <Typography variant="body2" color="text.secondary">
-        //                     Seller: {sellerName}  {phone?.isVerified &&
-        //                         <TaskAltIcon />
-        //                     }
-        //                 </Typography>
-        //                 <Typography variant="body2" color="text.secondary">
-
-        //                     Location: {location}
-        //                 </Typography>
-        //             </Box>
-
-        //             <Box sx={{ marginLeft: '5px' }} >
-        //                 <Typography variant="body2" color="text.secondary">
-        //                     Original Price: {phone.originalPrice}$
-        //                 </Typography>
-
-        //             </Box>
-        //         </Box> */}
-        //         <Box>
-        //             <Typography>
-        //                 i
-        //             </Typography>
-        //         </Box>
-
-
-
-
-        //     </CardContent>
-        //     <CardActions sx={{ height: '50px' }} disableSpacing>
-
-
-
-
-
-
-
-
-        //     </CardActions>
-
-        //     {/* <Button
-        //         variant="contained"
-        //         color="error"
-        //         fullWidth
-        //         sx={{
-        //             cursor: 'default',
-        //             // position: 'absolute',
-        //             // bottom: '0px',
-                   
-
-
-        //         }}
-        //     >
-        //         <label
-        //             style={{
-        //                 cursor: 'pointer',
-        //                 width: '100%'
-        //             }}
-        //             onClick={() => setModeal(phone)} htmlFor="my-modal-3" >Book Now</label>
-        //     </Button> */}
-
-        // </Card>
-        <div>
-            <h1>This is card</h1>
+                            <a class="cart" href=" ">
+                                <span class="price">$ {resalePrice}</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     );

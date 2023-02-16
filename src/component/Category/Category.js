@@ -7,7 +7,6 @@ import PhoneCard from '../PhoneCard/PhoneCard';
 import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
-    //test const [modeal,setModeal]= useState(null);
    const {modeal}=useContext(AuthContext);
    console.log(phones);
     
@@ -17,8 +16,6 @@ const Category = () => {
             phones?.map(p=><PhoneCard
             key={p._id}
             phone={p}
-
-            //test setModeal={setModeal}
             ></PhoneCard>)
         }
 

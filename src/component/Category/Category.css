@@ -1,9 +1,10 @@
 .phone-container{
     margin-top: 100px;
-  
+    margin-bottom: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 150px;
+  
 }
 
 @media only screen and (min-width:1279px) and (max-width:1500px) {
