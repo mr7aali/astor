@@ -17,7 +17,7 @@ const SubBanner = () => {
             <div className='Sub-banner-container  md:gap-4 max-w-screen-xl mx-auto md:grid md:grid-cols-12 '>
                 <div className='box col-span-4 h-[300px] shadow-md'>
                     <Box className='sub-banner-img-container'>
-                        <img className='h-[100%]' src="https://i.ibb.co/MPkYtpF/delivery.jpg" alt="" srcset="" />
+                        <img className='h-[100%]' src="https://i.ibb.co/MPkYtpF/delivery.jpg" alt="" srcSet="" />
                     </Box>
                 </div>
                 <div className='box  md:col-span-8 h-[300px] shadow-md'>
@@ -40,22 +40,22 @@ const SubBanner = () => {
                         >
                             <SwiperSlide>
                                 <Box className='sub-banner-img-container'>
-                                    <img src="https://i.ibb.co/tPxWvCw/realmi.jpg" alt="" srcset="" />
+                                    <img src="https://i.ibb.co/tPxWvCw/realmi.jpg" alt="" srcSet="" />
                                 </Box>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <Box className='sub-banner-img-container'>
-                                    <img src="https://i.ibb.co/PW2HtSN/oppo-f19-pro.png" alt="" srcset="" />
+                                    <img src="https://i.ibb.co/PW2HtSN/oppo-f19-pro.png" alt="" srcSet="" />
                                 </Box>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <Box className='sub-banner-img-container'>
-                                    <img src="https://i.ibb.co/fxjRy0y/vivo-x80.png" alt="" srcset="" />
+                                    <img src="https://i.ibb.co/fxjRy0y/vivo-x80.png" alt="" srcSet="" />
                                 </Box>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <Box className='sub-banner-img-container'>
-                                    <img src="https://i.ibb.co/QCFx4xr/xiaomi-redmi-note-11-pro.png" alt="" srcset="" />
+                                    <img src="https://i.ibb.co/QCFx4xr/xiaomi-redmi-note-11-pro.png" alt="" srcSet="" />
                                 </Box>
                             </SwiperSlide>
 
@@ -64,12 +64,12 @@ const SubBanner = () => {
                 </div>
                 <div className='box md:col-span-6 h-[170px] shadow-md '>
                     <Box className='sub-banner-img-container'>
-                        <img src="https://i.ibb.co/Mn2xFcf/mobilepoint-gadget.jpg" alt="" srcset="" />
+                        <img src="https://i.ibb.co/Mn2xFcf/mobilepoint-gadget.jpg" alt="" srcSet="" />
                     </Box>
                 </div>
                 <div className='box md:col-span-6 h-[170px] shadow-md'>
                     <Box className='sub-banner-img-container'>
-                        <img src="https://i.ibb.co/KFb0dhJ/gadget-2.jpg" alt="" srcset="" />
+                        <img src="https://i.ibb.co/KFb0dhJ/gadget-2.jpg" alt="" srcSet="" />
                     </Box>
                 </div>
 

@@ -16,7 +16,7 @@ const Brand = () => {
 
 
     return (
-        <div className='allbrand'>
+        <div className='allbrand mb-20'>
             {/* <h1 className='text-5xl text-center font-bold mt-20 mb-10'> Brand <span className='text-primary'>Catagories</span></h1> */}
             <div className='brand-container max-w-screen-2xl mx-auto '>
 

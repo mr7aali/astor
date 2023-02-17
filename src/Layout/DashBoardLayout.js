@@ -28,6 +28,8 @@ const DashBoardLayout = () => {
   
 
     return (
+        <React.Fragment>
+
         <div className=''>
             <Header></Header>
             <div className="drawer drawer-mobile max-w-screen-2xl mx-auto ">
@@ -75,6 +77,7 @@ const DashBoardLayout = () => {
                 </div>
             </div>
         </div>
+        </React.Fragment>
     );
 };
 

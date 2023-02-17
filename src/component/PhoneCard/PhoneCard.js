@@ -47,42 +47,45 @@ const PhoneCard = ({ phone }) => {
     const { location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
     return (
         // container
-        <div class=" page-wrapper ">
-            <div class="page-inner">
-                <div class="row">
-                    <div class="el-wrapper shadow-lg">
-                        <div class="box-up">
-                            <img class="img" src={picture} alt="" />
-                            <div class="img-info">
-                                <div class="info-inner">
-                                    <span class="p-name">{name} </span>
-                                    <span class="p-company"> {brandName}</span>
-                                </div>
-                                <div class="a-size">
-                                    <span class="size">{location}</span>
-                                    
-                                </div>
-                               
-                            </div>
-                        </div>
+        <React.Fragment>
 
-                        <div class="box-down">
-                            <div class="h-bg">
-                                <div class="h-bg-inner"></div>
+            <div className=" page-wrapper ">
+                <div className="page-inner">
+                    <div className="row">
+                        <div className="el-wrapper shadow-lg">
+                            <div className="box-up">
+                                <img className="img" src={picture} alt="" />
+                                <div className="img-info">
+                                    <div className="info-inner">
+                                        <span className="p-name">{name} </span>
+                                        <span className="p-company"> {brandName}</span>
+                                    </div>
+                                    <div className="a-size">
+                                        <span className="size">{location}</span>
+
+                                    </div>
+
+                                </div>
                             </div>
 
-                            <a class="cart" href=" ">
-                                <span class="price">$ {resalePrice}</span>
-                                <span class="add-to-cart">
-                                    <span class="txt">Add in cart</span>
-                                    
-                                </span>
-                            </a>
+                            <div className="box-down">
+                                <div className="h-bg">
+                                    <div className="h-bg-inner"></div>
+                                </div>
+
+                                <a className="cart" href=" ">
+                                    <span className="price">$ {resalePrice}</span>
+                                    <span className="add-to-cart">
+                                        <span className="txt">Add in cart</span>
+
+                                    </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
 
     );
 };
