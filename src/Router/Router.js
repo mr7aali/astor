@@ -10,6 +10,7 @@ import Myproduct from "../component/Dashboard/NotRoot/Myproduct";
 import Err from "../component/Err/Err";
 import Home from "../component/Home/Home";
 import PrivetRout from "../component/PrivetRout/PrivetRout";
+import AddPost from "../component/Shared/AddPost/AddPost";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 
 
@@ -31,9 +32,13 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/categorys/${params.id}`)
             },
             {
-                path:'/blog',
-                element:<Blog></Blog>
-            }
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+             {
+                path:'addpost',
+                element:<AddPost/>
+            },
 
 
 
@@ -66,18 +71,18 @@ const router = createBrowserRouter([
             },
             {
                 path: '/Dashboard/mybuyers',
-                element:<MyBuyers></MyBuyers>
+                element: <MyBuyers></MyBuyers>
             },
             {
                 path: '/Dashboard/allseller',
-                element:<AllSellers></AllSellers>
+                element: <AllSellers></AllSellers>
             }
 
         ]
     },
     {
-        path:'*',
-        element:<Err></Err>
+        path: '*',
+        element: <Err></Err>
     }
 
 ]);

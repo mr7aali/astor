@@ -110,13 +110,6 @@ const AddProduct = () => {
                         <input {...register('mobileNumber')} type="text" placeholder="Type  mobile number" className="input  input-bordered w-full " />
 
 
-
-                        {/* <select {...register('brandName')} className="select input-bordered w-full max-w-xs">
-                            <option disabled selected>Mobile Brand</option>
-                            <option>Samsung</option>
-                            <option>iPhone</option>
-                            <option>Xiaomi</option>
-                        </select> */}
                         <select {...register('Brand')} className="select input-bordered w-full max-w-xs">
 
                             <option disabled selected>Brand</option>
