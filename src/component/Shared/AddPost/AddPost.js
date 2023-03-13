@@ -3,10 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import './AddPost.css'
 const AddPost = () => {
-    const classs = [{ value: 'V', label: 'V', }, { value: 'VI', label: 'VI', }, { value: 'VII', label: 'VII', }, { value: 'VIII', label: 'VIII', }, { value: 'IX', label: 'IX', }, { value: 'X', label: 'X', },];
-    const division = [{ value: 'Science', label: 'Science', }, { value: 'Commerce', label: 'Commerce', }, { value: 'Arts', label: 'Arts', },
-
-    ];
+    const Brands = [{ value: 'iPhone', label: 'iPhone'},{value: 'Samsung', label: 'Samsung' },{value: 'Xiaomi', label: 'Xiaomi' } ,{value: 'Other', label: 'Other' } ];
+    const condition = [  { value: 'Excellent', label: 'Excellent', },{ value: 'Good', label: 'Good', },{ value: 'Fair', label: 'Fair' }];
     const { register, reset, handleSubmit } = useForm();
     const handleSummition = data => {
         console.log(data);
@@ -37,35 +35,34 @@ const AddPost = () => {
             <form onSubmit={handleSubmit(handleSummition)}>
                 <div className='input-container'>
                     <div className='first-input-container'>
-                        <TextField  {...register("first_name")} id="outlined-basic" label="First Name" variant="outlined" />
-                        <TextField {...register("middle_name")} id="outlined-basic" label="Middle Name" variant="outlined" />
-                        <TextField {...register("last_name")} id="outlined-basic" label="Last Name" variant="outlined" />
+                        <TextField  {...register("first_name")} id="outlined-basic" label="Name" variant="outlined" />
+                        <TextField {...register("middle_name")} id="outlined-basic" label="Resale Price" variant="outlined" />
+                        <TextField {...register("last_name")} id="outlined-basic" label="Orginal Price" variant="outlined" />
 
 
 
-                        <TextField {...register("Class")} id="outlined-select-currency" select label="Select Class"  >
-                            {classs.map((option) => (
+                        <TextField {...register("Class")} id="outlined-select-currency" select label="Brand"  >
+                            {Brands.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
                         </TextField>
                         <TextField {...register("Division")} id="outlined-select-currency" select label="Select Division" >
-                            {division.map((option) => (
+                            {condition.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
                         </TextField>
 
-                        {/* <TextField id="outlined-basic" label="Select Division" variant="outlined" /> */}
-                        <TextField {...register("Roll")} id="outlined-basic" label="Enter Roll Number in Digits" variant="outlined" />
+                        <TextField {...register("Roll")} id="outlined-basic" label="Mobile Number" variant="outlined" />
                     </div>
 
                     <div className='second-input-container'>
                         <div className='address-input-container'>
                             <TextField {...register("address1")} id="outlined-basic" label="Address Line 1" variant="outlined" />
-                            <TextField {...register("address2")} id="outlined-basic" label="Address Line 2" variant="outlined" />
+                            <input type="file" />
                         </div>
                         <div style={{ marginTop: '15px' }} className='first-input-container'>
                             <TextField {...register("Landmark")} id="outlined-basic" label="Landmark" variant="outlined" />
