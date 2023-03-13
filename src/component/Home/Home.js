@@ -10,11 +10,11 @@ import SubBanner from './SubBanner/SubBanner';
 const Home = () => {
     return (
         <div>
-            <Banner/>
+            <SubBanner/>
             <FeatureBrand/>
             <Brand/>
+            <Banner/>
             <AllPhones/>
-            <SubBanner/>
             <Advertice/>
             <ExtraSection/>
         </div>

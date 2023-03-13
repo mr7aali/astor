@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import './PhoneCard.css';
+import { Link } from 'react-router-dom';
 
 
 const ExpandMore = styled((props) => {
@@ -38,7 +39,10 @@ const PhoneCard = ({ phone }) => {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
+    
+    const handleCart=(id)=>{
+        console.log(id);
+    }
 
     const tic = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -73,13 +77,13 @@ const PhoneCard = ({ phone }) => {
                                     <div className="h-bg-inner"></div>
                                 </div>
 
-                                <a className="cart" href=" ">
+                                <Link className="cart" onClick={()=>handleCart(phone._id)}>
                                     <span className="price">$ {resalePrice}</span>
                                     <span className="add-to-cart">
                                         <span className="txt">Add in cart</span>
 
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

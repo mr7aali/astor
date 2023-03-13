@@ -13,8 +13,6 @@ const Brand = () => {
                 SetBrandLoader(false);
             })
     }, [])
-
-
     return (
         <div className='allbrand mb-20'>
             {/* <h1 className='text-5xl text-center font-bold mt-20 mb-10'> Brand <span className='text-primary'>Catagories</span></h1> */}
@@ -23,9 +21,7 @@ const Brand = () => {
                 {
                     brandLoader && <progress className="progress w-56 mt-32"></progress>
                 }
-
                 {
-
                     Brands?.map(b => <Link to={`/category/${b._id}`} key={b._id}>
                         <div className='single-Brand-container'>
                             <SingleBrand
@@ -35,11 +31,7 @@ const Brand = () => {
 
                         </div>
                     </Link>)
-
-
                 }
-
-
             </div>
 
         </div>
