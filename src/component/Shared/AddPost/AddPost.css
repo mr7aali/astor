@@ -28,7 +28,7 @@
 
 .first-input-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 15px;
     /* border: 1px solid red; */
@@ -42,7 +42,7 @@
 
     margin-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
     column-gap: 10px;
 }
 
@@ -52,4 +52,21 @@
     color: white !important;
     padding-top: 14px !important;
     padding-bottom: 14px !important;
+}
+.from-img-container{
+    
+    height: 100%;
+    width: 100%;
+}
+.from-img-container img{
+    height: 120px;
+    width: 100%;
+  
+}
+#uploadFile{
+    position: absolute;
+    top: -500px;
+}
+#uploadFile label{
+    color: black;
 }
