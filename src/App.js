@@ -1,18 +1,20 @@
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import './App.css';
+import store from './Redux/Store';
 import router from './Router/Router';
 
 function App() {
   return (
     <div className="bg-[#fff]">
+      <Provider store={store}>
+        <RouterProvider router={router}>
+        </RouterProvider>
+      </Provider>
 
-      <RouterProvider router={router}>
-
-      </RouterProvider>
-      
       <ToastContainer
         position="top-center"
         autoClose={5000}

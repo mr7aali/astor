@@ -16,6 +16,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import PersonIcon from '@mui/icons-material/Person';
+import { useSelector } from 'react-redux';
+import TemporaryDrawer from '../../Home/SideCart/SideCart';
 
 const Header = () => {
     const { user, LogOut } = useContext(AuthContext);
@@ -40,7 +42,8 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
-
+    const state = useSelector((s) => s);
+    console.log(state)
 
     return (
 
@@ -151,41 +154,45 @@ const Header = () => {
                         </Box>
                         {
                             user ?
+                                <>
+                                    <div className='mx-12'>
+                                        <TemporaryDrawer />
+                                    </div>
+                                    <Box sx={{ flexGrow: 0 }}>
 
-                                <Box sx={{ flexGrow: 0 }}>
-
-                                    <Tooltip title="Open settings">
-                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                            <Avatar alt="Remy Sharp" src={user?.photoURL} />
-                                        </IconButton>
-                                    </Tooltip>
+                                        <Tooltip title="Open settings">
+                                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                                <Avatar alt="Remy Sharp" src={user?.photoURL} />
+                                            </IconButton>
+                                        </Tooltip>
 
 
-                                    <Menu
-                                        sx={{ mt: '45px' }}
-                                        id="menu-appbar"
-                                        anchorEl={anchorElUser}
-                                        anchorOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        keepMounted
-                                        transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                        open={Boolean(anchorElUser)}
-                                        onClose={handleCloseUserMenu}
-                                    >
+                                        <Menu
+                                            sx={{ mt: '45px' }}
+                                            id="menu-appbar"
+                                            anchorEl={anchorElUser}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            keepMounted
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            open={Boolean(anchorElUser)}
+                                            onClose={handleCloseUserMenu}
+                                        >
 
-                                        <MenuItem onClick={LogOut}>
-                                            <Typography textAlign="center">Logout</Typography>
-                                        </MenuItem>
+                                            <MenuItem onClick={LogOut}>
+                                                <Typography textAlign="center">Logout</Typography>
+                                            </MenuItem>
 
-                                    </Menu>
-                                </Box>
-
-                                : <>
+                                        </Menu>
+                                    </Box>
+                                </>
+                                :
+                                <>
                                     <Link to='/register'>
                                         <Box sx={{ marginLeft: '10px' }}>
                                             <Button
@@ -204,7 +211,7 @@ const Header = () => {
 
 
                                     <Link to='/login'>
-                                        <Box sx={{ marginLeft: '10px',marginRight:'10px' }}>
+                                        <Box sx={{ marginLeft: '10px', marginRight: '10px' }}>
                                             <Button
                                                 sx={{
 
@@ -221,15 +228,11 @@ const Header = () => {
                                     <div className='bg-[#FFC800] cursor-pointer rounded-md'>
                                         <p className='text-[#000] font-bold p-3 '>Post Your AD</p>
                                     </div>
-
-
-
                                 </>
                         }
                     </Toolbar>
 
                 </Container>
-
 
 
             </AppBar>
