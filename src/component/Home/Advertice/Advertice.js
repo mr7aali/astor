@@ -32,7 +32,7 @@ const Advertice = () => {
 
 
             <div className='pb-20'>
-                {advertise.length &&
+                {advertise?.length &&
                     <div>
                         <h1 className='text-5xl text-[#000] font-bold text-center pt-10  '>Suggested Products </h1>
                         <p className='text-xl text-center pt-10 text-[#000]'>Get Your Desired Product from Flash Deal !</p>

@@ -45,7 +45,7 @@ export default function TemporaryDrawer() {
                         />
                         {
                             <div style={{ "textShadow": "0px 0px 16px #000000", borderRadius: '500%' }} className=' p-1 absolute top-[-2px] left-[35px]'>
-                                <h1 className='rounded-full px-1 text-[red] m-0  font-extrabold text-[15px]'>{cart.length}+</h1>
+                                <h1 className='rounded-full px-1 text-[red] m-0  font-extrabold text-[15px]'>{cart?.length}+</h1>
                             </div>
                         }
                     </Button>
@@ -80,7 +80,7 @@ export default function TemporaryDrawer() {
                                             <h1 className='overflow-hidden text-[15px] font-bold'>{m.name}</h1>
                                             <p className='text-[#000] text-[13px]'>{m.condition}</p>
                                         </div>
-                                        <div className='ml-1 font-semibold'>${m.resalePrice}</div>
+                                        <div className='ml-1 font-semibold'> ${m.resalePrice}  <div></div> <span className='flex justify-end'>X {m.quantity}</span> </div>
                                     </div>
 
 
@@ -89,7 +89,7 @@ export default function TemporaryDrawer() {
                             )
                         }   
                         {
-                            cart.length ?
+                            cart?.length ?
                                 <div className='w-full mt-12'>
                                     <div className='bg-[#f7dcdc] p-3 text-xl mx-3'>
                                         <h1 className='text-center font-bold'>Cart Totals</h1>

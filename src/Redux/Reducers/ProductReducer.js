@@ -9,13 +9,20 @@ const productReducer = (state = initialState, action) => {
 
 
     const selectedProduct = state.cart.find(p => p._id === action.payload._id);
-    
+
 
 
     switch (action.type) {
         case ADD_TO_CART:
-            if(selectedProduct){
-                return state;
+
+            if (selectedProduct) {
+
+                const newCart = state.cart.filter(p => p._id !== selectedProduct._id);
+                selectedProduct.quantity = selectedProduct.quantity + 1;
+                return {
+                    ...state,
+                    cart: [...newCart, selectedProduct],
+                }
             }
             return {
                 ...state,
@@ -24,7 +31,18 @@ const productReducer = (state = initialState, action) => {
 
 
         case DELETE_FROM_CART:
-            console.log(action.payload);
+
+            const selectedProductForDelet = state.cart.find(p => p._id === action.payload);
+            const newCart = state.cart.filter(p => p._id !== action.payload);
+            if (selectedProductForDelet.quantity > 1) {
+                selectedProductForDelet.quantity = selectedProductForDelet.quantity - 1;
+                console.log(state);
+                return {
+                    ...state,
+                    cart: [...newCart, selectedProductForDelet],
+                }
+            }
+            console.log("all delete");
             return {
                 ...state,
                 cart: state.cart.filter(m => m._id !== action.payload)

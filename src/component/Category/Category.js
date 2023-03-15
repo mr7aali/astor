@@ -8,7 +8,7 @@ import './Category.css'
 const Category = () => {
     const phones = useLoaderData();
     const { modeal } = useContext(AuthContext);
-    console.log(phones[0].brandName);
+  
 
     return (
         <div className='bg-[#E2EFFB] pb-20'>
