@@ -5,8 +5,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import app from '../../../firebase/firebase.config';
+import { postUser } from '../../../utility/usePostUser';
 import './Resister.css'
-import postUser from '../../../utility/usePostUser';
+
 const auth = getAuth(app)
 
 const Register = () => {

@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCart } from '../../../Redux/ActionCreators/productAction';
+import { shortedWithId } from '../../../utility/usePostUser';
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -17,20 +18,20 @@ export default function TemporaryDrawer() {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
         setState({ ...state, [anchor]: open });
     };
 
     const cart = useSelector((s) => s.cart);
     const dispatch = useDispatch()
-    console.log("Befor", cart);
 
-    const sortedCart = [...cart].sort((a, b) => {
-        const timestampA = new Date(parseInt(a._id.substring(0, 8), 16) * 1000);
-        const timestampB = new Date(parseInt(b._id.substring(0, 8), 16) * 1000);
-        return timestampA - timestampB;
-    });
-    console.log("after", sortedCart);
+
+    // const sortedCart = [...cart].sort((a, b) => {
+    //     const timestampA = new Date(parseInt(a._id.substring(0, 8), 16) * 1000);
+    //     const timestampB = new Date(parseInt(b._id.substring(0, 8), 16) * 1000);
+    //     return timestampA - timestampB;
+    // });
+    const sortedCart = shortedWithId(cart)
+
 
     return (
         <div>
@@ -55,12 +56,6 @@ export default function TemporaryDrawer() {
                             </div>
                         }
                     </Button>
-
-
-
-
-
-
 
                     <Drawer
                         anchor={anchor}
@@ -120,7 +115,6 @@ export default function TemporaryDrawer() {
                                 <div className='w-[350px] h-[100%]'>
                                     <h1 className='flex items-center justify-center mt-96 text-xl text-[#000]'>Cart Is Empty</h1>
                                 </div>
-
                         }
                     </Drawer>
                 </React.Fragment>

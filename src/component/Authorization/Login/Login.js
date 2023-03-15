@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
-import postUser from '../../../utility/usePostUser';
+import { postUser } from '../../../utility/usePostUser';
+
 
 const Login = () => {
 
