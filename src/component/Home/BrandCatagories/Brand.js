@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import fetchBrand from '../../../Redux/Thunk/fetchBrands';
+
 import './Brand.css'
 import SingleBrand from './SingleBrand/SingleBrand';
 const Brand = () => {
-    const [Brands, setBrand] = useState(null);
-    const [brandLoader, SetBrandLoader] = useState(true);
+   
+    const dispatch = useDispatch();
+    const Brands = useSelector((s) => s.product.Brands);
+    console.log(Brands);
+    const brandLoader = useSelector((s) => s.product.loader);
+    console.log(brandLoader);
     useEffect(() => {
-        fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/brand')
-            .then(res => res.json())
-            .then(data => {
-                setBrand(data);
-                SetBrandLoader(false);
-            })
-    }, [])
+        dispatch(fetchBrand());
+    }, [dispatch]);
+
+
+
     return (
         <div className='allbrand mb-20'>
-            {/* <h1 className='text-5xl text-center font-bold mt-20 mb-10'> Brand <span className='text-primary'>Catagories</span></h1> */}
+          
+          
             <div className='brand-container max-w-screen-2xl mx-auto '>
 
                 {

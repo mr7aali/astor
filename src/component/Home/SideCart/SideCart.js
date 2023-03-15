@@ -21,17 +21,12 @@ export default function TemporaryDrawer() {
         setState({ ...state, [anchor]: open });
     };
 
-    const cart = useSelector((s) => s.cart);
-    const dispatch = useDispatch()
 
-
-    // const sortedCart = [...cart].sort((a, b) => {
-    //     const timestampA = new Date(parseInt(a._id.substring(0, 8), 16) * 1000);
-    //     const timestampB = new Date(parseInt(b._id.substring(0, 8), 16) * 1000);
-    //     return timestampA - timestampB;
-    // });
-    const sortedCart = shortedWithId(cart)
-
+    const cart = useSelector((s) => s.product.cart);
+  
+    const dispatch = useDispatch();
+    
+     const sortedCart = shortedWithId(cart);
 
     return (
         <div>

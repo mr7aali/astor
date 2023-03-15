@@ -1,7 +1,9 @@
-import { ADD_TO_CART, DELETE_FROM_CART } from "../actionTypes/actionTypes";
+import { ADD_TO_CART, DELETE_FROM_CART, LOAD_BRANDS } from "../actionTypes/actionTypes";
 
 const initialState = {
-    cart: []
+    cart: [],
+    Brands: [],
+    loader: false
 };
 
 const productReducer = (state = initialState, action) => {
@@ -13,8 +15,11 @@ const productReducer = (state = initialState, action) => {
 
 
     switch (action.type) {
+        case LOAD_BRANDS:
+            return {
+                ...state, Brands: action.payload
+            }
         case ADD_TO_CART:
-
             if (selectedProduct) {
 
                 const newCart = state.cart.filter(p => p._id !== selectedProduct._id);
@@ -36,13 +41,13 @@ const productReducer = (state = initialState, action) => {
             const newCart = state.cart.filter(p => p._id !== action.payload);
             if (selectedProductForDelet.quantity > 1) {
                 selectedProductForDelet.quantity = selectedProductForDelet.quantity - 1;
-                
+
                 return {
                     ...state,
                     cart: [...newCart, selectedProductForDelet],
                 }
             }
-           
+
             return {
                 ...state,
                 cart: state.cart.filter(m => m._id !== action.payload)
