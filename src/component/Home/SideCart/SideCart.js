@@ -1,16 +1,9 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteFromCart } from '../../../Redux/ActionCreators/productAction';
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -28,40 +21,10 @@ export default function TemporaryDrawer() {
         setState({ ...state, [anchor]: open });
     };
 
-    const list = (anchor) => (
-        <Box
-            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
+    const cart = useSelector((s) => s.cart);
+    const dispatch = useDispatch()
+
+
 
     return (
         <div>
@@ -71,22 +34,88 @@ export default function TemporaryDrawer() {
                     <Button onClick={toggleDrawer(anchor, true)}>
                         <AddShoppingCartIcon
                             sx={{
-                                
+
                                 color: '#000',
-                                height:'45px',
-                                width:'45px',
-                                background:'#fff',
-                                borderRadius:'50%',
-                                padding:'6px'
+                                height: '45px',
+                                width: '45px',
+                                background: '#fff',
+                                borderRadius: '50%',
+                                padding: '6px'
                             }}
-                        /> </Button>
+                        />
+                        {
+                            <div style={{ "textShadow": "0px 0px 16px #000000", borderRadius: '500%' }} className=' p-1 absolute top-[-2px] left-[35px]'>
+                                <h1 className='rounded-full px-1 text-[red] m-0  font-extrabold text-[15px]'>{cart.length}+</h1>
+                            </div>
+                        }
+                    </Button>
+
+
+
+
+
+
 
                     <Drawer
                         anchor={anchor}
                         open={state[anchor]}
                         onClose={toggleDrawer(anchor, false)}
                     >
-                        {list(anchor)}
+
+                        <h1 className='text-[#000] mt-6 ml-5 text-[25px]'>Shopping Bag</h1>
+
+
+
+                        {
+                            cart?.map(m =>
+
+                                <div key={m._id} className='w-[350px] mt-2'>
+
+                                    <div style={{ borderTop: '1px solid black' }} className='p-3 m-2 flex items-center'>
+                                        <div onClick={() => dispatch(deleteFromCart(m._id))} className='m-0 text-red-500 font-bold cursor-pointer'>X</div>
+                                        <div className='h-[40px] w-[60px] bg-black ml-3'>
+                                            <img className='h-[100%] w-[100%]' src={m.picture} alt="" />
+                                        </div>
+                                        <div className='w-[150px] ml-2'>
+                                            <h1 className='overflow-hidden text-[15px] font-bold'>{m.name}</h1>
+                                            <p className='text-[#000] text-[13px]'>{m.condition}</p>
+                                        </div>
+                                        <div className='ml-1 font-semibold'>${m.resalePrice}</div>
+                                    </div>
+
+
+                                </div>
+
+                            )
+                        }   
+                        {
+                            cart.length ?
+                                <div className='w-full mt-12'>
+                                    <div className='bg-[#f7dcdc] p-3 text-xl mx-3'>
+                                        <h1 className='text-center font-bold'>Cart Totals</h1>
+                                    </div>
+                                    <div className='flex px-5 mt-2 justify-between'>
+                                        <h1 className='font-medium'>Sub Totals</h1>
+                                        <p className='font-medium'>$500</p>
+                                    </div>
+                                    <div className='flex px-5 mt-2 justify-between'>
+                                        <h1 className='font-medium'>Delivary Charge</h1>
+                                        <p className='font-medium'>$500</p>
+                                    </div>
+                                    <div className='flex px-5 mt-2 justify-between'>
+                                        <h1 className='font-medium'>Total</h1>
+                                        <p className='font-medium'>$500</p>
+                                    </div>
+                                    <div className='bg-[#13AFF0] mt-5 p-3 text-lg mx-3'>
+                                        <h1 className='text-center text-[#fff] '>Proceed To Checkout</h1>
+                                    </div>
+                                </div>
+                                : 
+                                <div className='w-[350px] h-[100%]'>
+                                         <h1 className='flex items-center justify-center mt-96 text-xl text-[#000]'>Cart Is Empty</h1>
+                                </div>
+                                
+                        }
                     </Drawer>
                 </React.Fragment>
             ))}

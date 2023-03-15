@@ -16,7 +16,6 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import PersonIcon from '@mui/icons-material/Person';
-import { useSelector } from 'react-redux';
 import TemporaryDrawer from '../../Home/SideCart/SideCart';
 
 const Header = () => {
@@ -42,8 +41,8 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
-    const state = useSelector((s) => s);
-    console.log(state)
+ 
+
 
     return (
 
@@ -218,7 +217,6 @@ const Header = () => {
                                                     padding: '4px 20px '
                                                 }}
                                                 startIcon={< PersonIcon sx={{ color: '#ffff', width: '35px', height: '35px' }} />}
-                                            // variant='text'
 
                                             >
                                                 <span style={{ textTransform: 'none' }} className='text-[#fff]'>Sing In</span>
