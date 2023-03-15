@@ -23,8 +23,14 @@ export default function TemporaryDrawer() {
 
     const cart = useSelector((s) => s.cart);
     const dispatch = useDispatch()
+    console.log("Befor", cart);
 
-
+    const sortedCart = [...cart].sort((a, b) => {
+        const timestampA = new Date(parseInt(a._id.substring(0, 8), 16) * 1000);
+        const timestampB = new Date(parseInt(b._id.substring(0, 8), 16) * 1000);
+        return timestampA - timestampB;
+    });
+    console.log("after", sortedCart);
 
     return (
         <div>
@@ -67,7 +73,7 @@ export default function TemporaryDrawer() {
 
 
                         {
-                            cart?.map(m =>
+                            sortedCart?.map(m =>
 
                                 <div key={m._id} className='w-[350px] mt-2'>
 
@@ -87,7 +93,7 @@ export default function TemporaryDrawer() {
                                 </div>
 
                             )
-                        }   
+                        }
                         {
                             cart?.length ?
                                 <div className='w-full mt-12'>
@@ -110,11 +116,11 @@ export default function TemporaryDrawer() {
                                         <h1 className='text-center text-[#fff] '>Proceed To Checkout</h1>
                                     </div>
                                 </div>
-                                : 
+                                :
                                 <div className='w-[350px] h-[100%]'>
-                                         <h1 className='flex items-center justify-center mt-96 text-xl text-[#000]'>Cart Is Empty</h1>
+                                    <h1 className='flex items-center justify-center mt-96 text-xl text-[#000]'>Cart Is Empty</h1>
                                 </div>
-                                
+
                         }
                     </Drawer>
                 </React.Fragment>

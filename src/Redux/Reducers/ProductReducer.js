@@ -36,13 +36,13 @@ const productReducer = (state = initialState, action) => {
             const newCart = state.cart.filter(p => p._id !== action.payload);
             if (selectedProductForDelet.quantity > 1) {
                 selectedProductForDelet.quantity = selectedProductForDelet.quantity - 1;
-                console.log(state);
+                
                 return {
                     ...state,
                     cart: [...newCart, selectedProductForDelet],
                 }
             }
-            console.log("all delete");
+           
             return {
                 ...state,
                 cart: state.cart.filter(m => m._id !== action.payload)
