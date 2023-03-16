@@ -1,19 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchALL_Phone } from '../../Redux/Thunk/fetchBrands';
+
 import PhoneCard from '../PhoneCard/PhoneCard';
 
 const AllPhones = () => {
+    const dispatch = useDispatch();
+    const allphone = useSelector((s)=>s.product.allphone)
+    
 
-    const { data: allphone = [] } = useQuery({
-        queryKey: ['allphone'],
-        queryFn: async () => {
-            const res = await fetch('https://astor-server.vercel.app/allproduct');
-            const data = await res.json();
-            return data;
-        }
 
-    })
-
+    useEffect(() => {
+        const url = 'https://astor-server.vercel.app/allproduct';
+       dispatch(fetchALL_Phone(url))
+    }, [dispatch])
     return (
         <div className='bg-[#E2EFFB] '>
 
@@ -22,7 +22,7 @@ const AllPhones = () => {
                 <p className='text-xl text-center pt-10 text-[#000] mb-5'>Get Your Desired Product from Flash Deal !</p>
             </div>
             <div className='max-w-screen-xl mx-auto grid-cols-1 grid md:grid-cols-2 lg:grid-cols-3'>
-             
+
                 {
                     allphone?.map(a =>
                         <PhoneCard

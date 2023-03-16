@@ -5,6 +5,7 @@ import Advertice from './Advertice/Advertice';
 import Banner from './Banner/Banner';
 import Brand from './BrandCatagories/Brand';
 import FeatureBrand from './FeatureBrand/FeatureBrand';
+import GetDailyOffer from './GetDailyOffer/GetDailyOffer';
 import SubBanner from './SubBanner/SubBanner';
 
 const Home = () => {
@@ -15,8 +16,9 @@ const Home = () => {
             <Brand/>
             <Banner/>
             <AllPhones/>
-            <Advertice/>
             <ExtraSection/>
+            <Advertice/>
+            <GetDailyOffer/>
         </div>
     );
 };

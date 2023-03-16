@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_FROM_CART, LOAD_BRANDS } from "../actionTypes/actionTypes"
+import { ADD_TO_CART, DELETE_FROM_CART, LOAD_ALL_PHONE, LOAD_BRANDS } from "../actionTypes/actionTypes"
 
 
 
@@ -18,6 +18,12 @@ export const deleteFromCart = (id) => {
 export const loadBrands = (data) => {
   return {
     type: LOAD_BRANDS,
+    payload: data
+  }
+}
+export const addALL_PHONE = (data) => {
+  return {
+    type: LOAD_ALL_PHONE,
     payload: data
   }
 }

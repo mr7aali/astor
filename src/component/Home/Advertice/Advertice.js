@@ -26,8 +26,9 @@ const Advertice = () => {
 
     return (
         <Box sx={{
-          background:'#E2EFFB',
-      
+            
+           // background:'#E2EFFB',
+            background:'#fffff',
         }}>
 
 
