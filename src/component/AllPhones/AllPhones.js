@@ -6,13 +6,16 @@ import PhoneCard from '../PhoneCard/PhoneCard';
 
 const AllPhones = () => {
     const dispatch = useDispatch();
-    const allphone = useSelector((s)=>s.product.allphone)
-    
+    const allphone = useSelector((s) => s.product.allphone)
+
+
+   
+
 
 
     useEffect(() => {
         const url = 'https://astor-server.vercel.app/allproduct';
-       dispatch(fetchALL_Phone(url))
+        dispatch(fetchALL_Phone(url))
     }, [dispatch])
     return (
         <div className='bg-[#E2EFFB] '>

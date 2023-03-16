@@ -23,10 +23,18 @@ export default function TemporaryDrawer() {
 
 
     const cart = useSelector((s) => s.product.cart);
-  
     const dispatch = useDispatch();
-    
-     const sortedCart = shortedWithId(cart);
+    const sortedCart = shortedWithId(cart);
+
+    const priceOfArry = cart?.map((m, i) => parseInt(m.resalePrice) * parseInt(m.quantity));
+    const quantity = cart?.map((m, i) => parseInt(m.quantity));
+
+
+    const subTotal = priceOfArry.reduce((partialSum, a) => partialSum + a, 0);
+    const sum_auantity = quantity.reduce((partialSum, a) => partialSum + a, 0);
+
+    const Delivary_Charge = parseInt(60 +  sum_auantity*(10) );
+    console.log(Delivary_Charge)
 
     return (
         <div>
@@ -92,15 +100,15 @@ export default function TemporaryDrawer() {
                                     </div>
                                     <div className='flex px-5 mt-2 justify-between'>
                                         <h1 className='font-medium'>Sub Totals</h1>
-                                        <p className='font-medium'>$500</p>
+                                        <p className='font-medium'>${subTotal}</p>
                                     </div>
                                     <div className='flex px-5 mt-2 justify-between'>
                                         <h1 className='font-medium'>Delivary Charge</h1>
-                                        <p className='font-medium'>$500</p>
+                                        <p className='font-medium'>$ {Delivary_Charge}</p>
                                     </div>
                                     <div className='flex px-5 mt-2 justify-between'>
                                         <h1 className='font-medium'>Total</h1>
-                                        <p className='font-medium'>$500</p>
+                                        <p className='font-medium'>${subTotal + Delivary_Charge}</p>
                                     </div>
                                     <div className='bg-[#13AFF0] mt-5 p-3 text-lg mx-3'>
                                         <h1 className='text-center text-[#fff] '>Proceed To Checkout</h1>
