@@ -15,11 +15,13 @@ const SubBanner = () => {
            // border:'1px solid red'
         }}>
             <div className='Sub-banner-container md:gap-4 max-w-screen-xl mx-auto md:grid md:grid-cols-12 '>
-                <div className='box m-3 md:m-0  col-span-4 h-[300px] shadow-md'>
+              
+                <div className='box m-3 md:m-0 hidden md:flex col-span-4 h-[300px] shadow-md'>
                     <Box className='sub-banner-img-container'>
                         <img className='h-[100%]' src="https://i.ibb.co/MPkYtpF/delivery.jpg" alt="" srcSet="" />
                     </Box>
                 </div>
+
                 <div className='box m-3 md:m-0  md:col-span-8 h-[300px] shadow-md'>
                     <>
                         <Swiper
@@ -62,6 +64,7 @@ const SubBanner = () => {
                         </Swiper>
                     </>
                 </div>
+
                 <div className='box m-3 md:m-0 md:col-span-6 h-[170px] shadow-md '>
                     <Box className='sub-banner-img-container'>
                         <img src="https://i.ibb.co/Mn2xFcf/mobilepoint-gadget.jpg" alt="" srcSet="" />
@@ -70,6 +73,11 @@ const SubBanner = () => {
                 <div className='box m-3 md:m-0  md:col-span-6 h-[170px] shadow-md'>
                     <Box className='sub-banner-img-container'>
                         <img src="https://i.ibb.co/KFb0dhJ/gadget-2.jpg" alt="" srcSet="" />
+                    </Box>
+                </div>
+                <div className='box m-3 md:m-0 flex md:hidden col-span-4 h-[300px] shadow-md'>
+                    <Box className='sub-banner-img-container'>
+                        <img className='h-[100%]' src="https://i.ibb.co/MPkYtpF/delivery.jpg" alt="" srcSet="" />
                     </Box>
                 </div>
             </div>

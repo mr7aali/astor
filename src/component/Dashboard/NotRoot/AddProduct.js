@@ -50,9 +50,7 @@ const AddProduct = () => {
                         sellerEmail:user?.email,
                         mobileNumber:data.mobileNumber,
                         isVerified: true
-                    }
-                   
-                   
+                    }                   
                     fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/addproduct', {
                         method: 'POST',
                         headers: {
@@ -70,9 +68,8 @@ const AddProduct = () => {
                         })
 
 
-
+                        
                 }
-
             })
     }
 

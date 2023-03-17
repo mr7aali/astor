@@ -41,7 +41,7 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
- 
+
 
 
     return (
@@ -53,7 +53,7 @@ const Header = () => {
 
                 <Container maxWidth="lg">
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <AdbIcon   sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Link to='/'>
                             <Typography
                                 variant="h6"
@@ -154,10 +154,13 @@ const Header = () => {
                         {
                             user ?
                                 <>
-                                    <div className='mx-12'>
+                                    <div className='mx-3'>
                                         <TemporaryDrawer />
                                     </div>
-                                    <Box sx={{ flexGrow: 0 }}>
+                                    <div className='bg-[#FFC800] cursor-pointer rounded-md mr-6 md:mr-12'>
+                                        <p className='text-[#000] font-bold p-2 md:p-3 text-[10px] md:text-[13px]'>Post Your AD</p>
+                                    </div>
+                                    <Box className='hidden md:flex' sx={{ flexGrow: 0 }}>
 
                                         <Tooltip title="Open settings">
                                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -223,9 +226,11 @@ const Header = () => {
                                             </Button>
                                         </Box>
                                     </Link>
+
                                     <div className='bg-[#FFC800] cursor-pointer rounded-md'>
                                         <p className='text-[#000] font-bold p-3 '>Post Your AD</p>
                                     </div>
+
                                 </>
                         }
                     </Toolbar>

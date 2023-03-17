@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_FROM_CART, LOAD_ALL_PHONE, LOAD_BRANDS } from "../actionTypes/actionTypes";
+import { ADD_POST_STATE, ADD_TO_CART, DELETE_FROM_CART, LOAD_ALL_PHONE, LOAD_BRANDS } from "../actionTypes/actionTypes";
 
 const initialState = {
     cart: [],
@@ -19,6 +19,10 @@ const productReducer = (state = initialState, action) => {
         case LOAD_ALL_PHONE:
             return {
                 ...state, allphone: action.payload
+            }
+        case ADD_POST_STATE:
+            return {
+                ...state, allphone: [...state.allphone, action.payload]
             }
         case LOAD_BRANDS:
             return {

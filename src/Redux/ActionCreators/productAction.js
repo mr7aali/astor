@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_FROM_CART, LOAD_ALL_PHONE, LOAD_BRANDS } from "../actionTypes/actionTypes"
+import { ADD_POST_STATE, ADD_TO_CART, DELETE_FROM_CART, LOAD_ALL_PHONE, LOAD_BRANDS } from "../actionTypes/actionTypes"
 
 
 
@@ -24,6 +24,14 @@ export const loadBrands = (data) => {
 export const addALL_PHONE = (data) => {
   return {
     type: LOAD_ALL_PHONE,
+    payload: data
+  }
+}
+
+
+export const addPOST =(data) =>{
+  return {
+    type: ADD_POST_STATE,
     payload: data
   }
 }

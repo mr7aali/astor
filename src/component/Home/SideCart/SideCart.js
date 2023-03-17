@@ -34,7 +34,7 @@ export default function TemporaryDrawer() {
     const sum_auantity = quantity.reduce((partialSum, a) => partialSum + a, 0);
 
     const Delivary_Charge = parseInt(60 +  sum_auantity*(10) );
-    console.log(Delivary_Charge)
+
 
     return (
         <div>
