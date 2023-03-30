@@ -18,6 +18,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import PersonIcon from '@mui/icons-material/Person';
 import TemporaryDrawer from '../../Home/SideCart/SideCart';
 
+
 const Header = () => {
     const { user, LogOut } = useContext(AuthContext);
 
@@ -53,7 +54,7 @@ const Header = () => {
 
                 <Container maxWidth="lg">
                     <Toolbar disableGutters>
-                        <AdbIcon   sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Link to='/'>
                             <Typography
                                 variant="h6"
@@ -145,9 +146,10 @@ const Header = () => {
 
 
                             <Link to='/'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button></Link>
-                            <Link to='/addpost'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Add Post</Button></Link>
+
                             <Link to='/dashboard'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Dashboard</Button></Link>
-                            <Link to='/blog'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Blog</Button></Link>
+                            {/* <Link to='/blog'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Blog</Button></Link> */}
+                            <Link to='/addpost'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Add Post</Button></Link>
 
 
                         </Box>
@@ -157,9 +159,11 @@ const Header = () => {
                                     <div className='mx-3'>
                                         <TemporaryDrawer />
                                     </div>
-                                    <div className='bg-[#FFC800] cursor-pointer rounded-md mr-6 md:mr-12'>
-                                        <p className='text-[#000] font-bold p-2 md:p-3 text-[10px] md:text-[13px]'>Post Your AD</p>
-                                    </div>
+                                    <Link to='/addpost'>
+                                        <div className='bg-[#FFC800] cursor-pointer rounded-md mr-6 md:mr-12'>
+                                            <p className='text-[#000] font-bold p-2 md:p-3 text-[10px] md:text-[13px]'>Post Your AD</p>
+                                        </div>
+                                    </Link>
                                     <Box className='hidden md:flex' sx={{ flexGrow: 0 }}>
 
                                         <Tooltip title="Open settings">
@@ -226,11 +230,11 @@ const Header = () => {
                                             </Button>
                                         </Box>
                                     </Link>
-
-                                    <div className='bg-[#FFC800] cursor-pointer rounded-md'>
-                                        <p className='text-[#000] font-bold p-3 '>Post Your AD</p>
-                                    </div>
-
+                                    <Link to='/addpost'>
+                                        <div className='bg-[#FFC800] cursor-pointer rounded-md'>
+                                            <p className='text-[#000] font-bold p-3 '>Post Your AD</p>
+                                        </div>
+                                    </Link>
                                 </>
                         }
                     </Toolbar>

@@ -64,16 +64,22 @@ const PhoneCard = ({ phone }) => {
 
             <div className=" page-wrapper ">
                 <div className="page-inner">
-                    <div className="row">
-                        <div className="el-wrapper shadow-lg">
+                    <div className="row ">
+                        <div className="el-wrapper shadow-lg border-red-800 border relative">
+                            <h1 className='text-[#fa2828] text-5xl absolute right-3'>ali</h1>
                             <div className="box-up">
+
+
+
                                 <img className="img" src={picture} alt="" />
-                                <div className="img-info">
+                                <div className="img-info  " >
+
                                     <div className="info-inner">
                                         <span className="p-name">{name} </span>
                                         <span className="p-company"> {brandName}</span>
                                     </div>
                                     <div className="a-size">
+
                                         <span className="size">{location}</span>
 
                                     </div>
@@ -82,6 +88,7 @@ const PhoneCard = ({ phone }) => {
                             </div>
 
                             <div className="box-down">
+
                                 <div className="h-bg">
                                     <div className="h-bg-inner"></div>
                                 </div>
@@ -94,6 +101,8 @@ const PhoneCard = ({ phone }) => {
                                     </span>
                                 </Link>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

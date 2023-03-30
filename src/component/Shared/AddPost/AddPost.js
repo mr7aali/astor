@@ -1,13 +1,12 @@
 import { Button, MenuItem, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './AddPost.css'
+import './AddPost.css';
 import { FaHourglassStart, FaStreetView } from "react-icons/fa";
 import { BsFileEarmarkSpreadsheet } from 'react-icons/bs'
 import { AuthContext } from '../../../contexts/AuthProvider';
-import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { addPost, addPost_Thank } from '../../../Redux/Thunk/fetchBrands';
+import { addPost_Thank } from '../../../Redux/Thunk/fetchBrands';
 
 const AddPost = () => {
     const dispatch = useDispatch();
@@ -43,8 +42,6 @@ const AddPost = () => {
             .then(imgData => {
 
 
-
-                //  console.log(imgData)
                 if (imgData.success) {
 
                     const addProductData = {                        
@@ -63,32 +60,8 @@ const AddPost = () => {
                         mobileNumber:data.mobileNumber,
                         isVerified: true
                     }  
-                    
-                    
-
-                    console.log(addProductData);                
-                  
-                    // fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/addproduct', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'content-type': 'application/json'
-                    //     },
-                    //     body: JSON.stringify(addProductData)
-
-                    // })
-                    //     .then(res => res.json())
-                    //     .then(data => {
-                            
-                    //         toast(`Added Successfully`)
-                    //         reset();
-                    //         // navigate(from, { replace: true });
-                    //     })
-                   dispatch(addPost_Thank(addProductData,reset))
-
-
-
                  
-                        
+                   dispatch(addPost_Thank(addProductData,reset))           
 
                 }
             })
@@ -126,8 +99,8 @@ const AddPost = () => {
             <div className='md:flex md:justify-center md:items-center'>
                 <div>
                     <div className='add-student-header'>
-                        <h5>Add Student</h5>
-                        <h4>2 Feb 2023</h4>
+                        <h5>Add your post</h5>
+                        <h4 className='font-bold'>{date}</h4>
 
                     </div>
                     <form onSubmit={handleSubmit(handleAddproduct)}>

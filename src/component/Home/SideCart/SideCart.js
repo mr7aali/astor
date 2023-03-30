@@ -5,6 +5,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCart } from '../../../Redux/ActionCreators/productAction';
 import { shortedWithId } from '../../../utility/usePostUser';
+import { BsFillTrash2Fill } from 'react-icons/bs'
+
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -33,7 +35,7 @@ export default function TemporaryDrawer() {
     const subTotal = priceOfArry.reduce((partialSum, a) => partialSum + a, 0);
     const sum_auantity = quantity.reduce((partialSum, a) => partialSum + a, 0);
 
-    const Delivary_Charge = parseInt(60 +  sum_auantity*(10) );
+    const Delivary_Charge = parseInt(60 + sum_auantity * (10));
 
 
     return (
@@ -115,8 +117,12 @@ export default function TemporaryDrawer() {
                                     </div>
                                 </div>
                                 :
-                                <div className='w-[350px] h-[100%]'>
-                                    <h1 className='flex items-center justify-center mt-96 text-xl text-[#000]'>Cart Is Empty</h1>
+                                <div className='w-[350px] '>
+                                    <h1 className='flex items-center flex-col  mt-96 text-xl text-[#000]'>
+                                        <BsFillTrash2Fill className='text-[100px]' />
+                                        <p className='text-xl mt-3'>Empty</p>
+                                    </h1>
+
                                 </div>
                         }
                     </Drawer>
