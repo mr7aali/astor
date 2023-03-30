@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ADD_TO_CART } from '../../Redux/actionTypes/actionTypes';
 import { addToCart } from '../../Redux/ActionCreators/productAction';
+import { MdDeleteForever } from 'react-icons/md'
+
 
 
 const ExpandMore = styled((props) => {
@@ -65,8 +67,11 @@ const PhoneCard = ({ phone }) => {
             <div className=" page-wrapper ">
                 <div className="page-inner">
                     <div className="row ">
-                        <div className="el-wrapper shadow-lg border-red-800 border relative">
-                            <h1 className='text-[#fa2828] text-5xl absolute right-3'>ali</h1>
+                        <div className="el-wrapper shadow-lg relative">
+                            <div className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'>
+
+                                <MdDeleteForever className='text-white text-[30px]' />
+                            </div>
                             <div className="box-up">
 
 
