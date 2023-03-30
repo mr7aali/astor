@@ -6,7 +6,7 @@ const AllBuyers = () => {
     const { data: Buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/buyers');
+            const res = await fetch('http://localhost:5000/buyers');
             const data = await res.json();
             return data;
         }
@@ -14,7 +14,7 @@ const AllBuyers = () => {
          Buyers.map(B=>console.log(B.verification));
 
     const handleDelet = (data) => {
-        fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deleteBuyers?id=${data?._id}`, {
+        fetch(`http://localhost:5000/deleteBuyers?id=${data?._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ const AllBuyers = () => {
 
     const veryFication = (data) => {
  
-        fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/verifyUser?id=${data._id}`, {
+        fetch(`http://localhost:5000/verifyUser?id=${data._id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

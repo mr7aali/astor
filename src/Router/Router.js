@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/categorys/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/categorys/${params.id}`)
             },
             {
                 path: '/blog',

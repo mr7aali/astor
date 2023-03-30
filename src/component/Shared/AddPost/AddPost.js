@@ -141,7 +141,7 @@ const AddPost = () => {
                                     <div className='row-span-2 from-img-container'>
                                         <input style={{
                                             zIndex:'-1'
-                                        }} className='bg-[]' {...register('img')} type="file" id='uploadFile' onChange={getFile} accept='image/*' required/>
+                                        }} className='bg-[]' {...register('img')} type="file" id='uploadFile' onChange={getFile} accept='image/*' />
 
                                         <label htmlFor='uploadFile'>
                                             {

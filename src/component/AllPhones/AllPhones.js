@@ -27,10 +27,10 @@ const AllPhones = () => {
             <div className='max-w-screen-xl mx-auto grid-cols-1 grid md:grid-cols-2 lg:grid-cols-3'>
 
                 {
-                    allphone?.map(a =>
+                 allphone &&   allphone.map(a =>
                         <PhoneCard
                             phone={a}
-                            key={a._id}
+                            key={a?._id}
                         />
                     )
                 }

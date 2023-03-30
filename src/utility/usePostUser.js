@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 
 export const postUser = (data) => {
-    fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/user', {
+    fetch('http://localhost:5000/user', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -25,3 +25,17 @@ export const shortedWithId = (data) => {
     return sortedCart;
 }
 
+
+
+export const DeletePhone = (id) => {
+    console.log("Delete Function called" , id);
+    fetch(`http://localhost:5000/deletePhone?id=${id}`, {
+        method: 'DELETE'
+    })
+
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+
+        })
+}

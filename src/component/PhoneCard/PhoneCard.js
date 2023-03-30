@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider';
+import React from 'react';
+
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import './PhoneCard.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ADD_TO_CART } from '../../Redux/actionTypes/actionTypes';
-import { addToCart } from '../../Redux/ActionCreators/productAction';
+
+import { addToCart, loadPHONE } from '../../Redux/ActionCreators/productAction';
 import { MdDeleteForever } from 'react-icons/md'
+import { DeletePhone } from '../../utility/usePostUser';
+import { RELOAD_ALL_PHONE } from '../../Redux/actionTypes/actionTypes';
+
 
 
 
@@ -32,19 +35,6 @@ const PhoneCard = ({ phone }) => {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const DeletePhone = () => {
-        fetch(`https://astor-server-ibv9wp3q8-mr7aali.vercel.app/deletePhone?id=${phone._id}`, {
-            method: 'DELETE'
-        })
-
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-
-            })
-    }
-
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -56,8 +46,8 @@ const PhoneCard = ({ phone }) => {
     const tic = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
     </svg>
-    // const { setModeal } = useContext(AuthContext);
-    const { location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
+
+    const { _id, location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
 
     const dispatch = useDispatch();
     return (
@@ -68,7 +58,9 @@ const PhoneCard = ({ phone }) => {
                 <div className="page-inner">
                     <div className="row ">
                         <div className="el-wrapper shadow-lg relative">
-                            <div className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'>
+                            <div className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'
+                                onClick={() => dispatch(loadPHONE(phone))}
+                            >
 
                                 <MdDeleteForever className='text-white text-[30px]' />
                             </div>

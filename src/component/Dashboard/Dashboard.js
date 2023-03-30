@@ -11,7 +11,7 @@ const Dashboard = () => {
     const [dbUser, setdbUser] = useState();
     const [loader, setLoader] = useState(true);
     useEffect(() => {
-        const url = `https://astor-server-ibv9wp3q8-mr7aali.vercel.app/userrol?email=${user?.email}`
+        const url = `http://localhost:5000/userrol?email=${user?.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

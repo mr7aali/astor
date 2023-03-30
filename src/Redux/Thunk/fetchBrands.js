@@ -7,7 +7,7 @@ import { addALL_PHONE, addPOST, loadBrands } from "../ActionCreators/productActi
 
 export const fetchDATA = () => {
     return async (dispatch, getState) => {
-        const res = await fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/brand');
+        const res = await fetch('http://localhost:5000/brand');
         const data = await res.json();
 
         if (data.length) {
@@ -34,7 +34,7 @@ export const addPost_Thank = (product,reset) => {
 
 
 
-        fetch('https://astor-server-ibv9wp3q8-mr7aali.vercel.app/addproduct', {
+        fetch('http://localhost:5000/addproduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

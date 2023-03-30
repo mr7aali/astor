@@ -13,7 +13,7 @@ const Brand = () => {
 
 
     useEffect(() => {
-        // const url = 'https://astor-server-ibv9wp3q8-mr7aali.vercel.app/brand'
+        // const url = 'http://localhost:5000/brand'
         dispatch(fetchDATA());
     }, [dispatch]);
 
