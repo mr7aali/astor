@@ -22,7 +22,7 @@ const productReducer = (state = initialState, action) => {
             };
         case RELOAD_ALL_PHONE:
             console.log(action.payload._id);
-            const newPhones = state.allphone.filter(p=>p._id !== action.payload._id);
+            const newPhones = state.allphone.filter(p => p._id !== action.payload._id);
 
             return {
                 ...state,

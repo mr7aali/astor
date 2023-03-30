@@ -59,7 +59,13 @@ const PhoneCard = ({ phone }) => {
                     <div className="row ">
                         <div className="el-wrapper shadow-lg relative">
                             <div className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'
-                                onClick={() => dispatch(loadPHONE(phone))}
+                                onClick={() => {
+                                    dispatch(loadPHONE(phone));
+                                    DeletePhone(_id);
+                                }
+                                             
+
+                                }
                             >
 
                                 <MdDeleteForever className='text-white text-[30px]' />
