@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -10,6 +10,7 @@ import { addToCart, loadPHONE } from '../../Redux/ActionCreators/productAction';
 import { MdDeleteForever } from 'react-icons/md'
 import { DeletePhone } from '../../utility/usePostUser';
 import { RELOAD_ALL_PHONE } from '../../Redux/actionTypes/actionTypes';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 
 
@@ -32,22 +33,27 @@ const ExpandMore = styled((props) => {
 
 
 const PhoneCard = ({ phone }) => {
+    
+    // const [expanded, setExpanded] = React.useState(false);
+    const { _id,sellerEmail, location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
+    // const handleExpandClick = () => {
+    //     setExpanded(!expanded);
+    // };
 
-    const [expanded, setExpanded] = React.useState(false);
+    // const handleCart = (id) => {
+    //     console.log(id);
+    // }
+   const { user } = useContext(AuthContext);
+   const AuthEmail = user?.email;
+    const isSeller =( AuthEmail === sellerEmail );
+    console.log(isSeller);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
-    const handleCart = (id) => {
-        console.log(id);
-    }
 
     const tic = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
     </svg>
 
-    const { _id, location, name, postedTime, resalePrice, sellerName, yearsOfUse, brandName, picture } = phone;
+    
 
     const dispatch = useDispatch();
     return (
@@ -58,7 +64,9 @@ const PhoneCard = ({ phone }) => {
                 <div className="page-inner">
                     <div className="row ">
                         <div className="el-wrapper shadow-lg relative">
-                            <div className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'
+                         {
+                            isSeller && 
+                            <button  className='text-[#06201e] cursor-pointer z-10 p-2 mt-1 mr-2 bg-black border  rounded-full  absolute right-3'
                                 onClick={() => {
                                     dispatch(loadPHONE(phone));
                                     DeletePhone(_id);
@@ -69,7 +77,9 @@ const PhoneCard = ({ phone }) => {
                             >
 
                                 <MdDeleteForever className='text-white text-[30px]' />
-                            </div>
+                            </button>
+                         }
+                            
                             <div className="box-up">
 
 

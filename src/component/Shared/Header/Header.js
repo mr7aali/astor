@@ -71,7 +71,7 @@ const Header = () => {
                                     textDecoration: 'none',
                                 }}
                             >
-                                LOGO
+                                Astor
                             </Typography>
                         </Link>
 
@@ -140,7 +140,7 @@ const Header = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                           Astor
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
@@ -149,7 +149,7 @@ const Header = () => {
 
                             <Link to='/dashboard'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Dashboard</Button></Link>
                             {/* <Link to='/blog'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Blog</Button></Link> */}
-                            <Link to='/addpost'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Add Post</Button></Link>
+                            {/* <Link to='/addpost'><Button onClick={handleCloseUserMenu} sx={{ my: 2, color: 'white', display: 'block' }}>Add Post</Button></Link> */}
 
 
                         </Box>

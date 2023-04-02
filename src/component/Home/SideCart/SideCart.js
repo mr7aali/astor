@@ -45,6 +45,7 @@ export default function TemporaryDrawer() {
 
                     <Button onClick={toggleDrawer(anchor, true)}>
                         <AddShoppingCartIcon
+
                             sx={{
 
                                 color: '#000',
@@ -52,7 +53,8 @@ export default function TemporaryDrawer() {
                                 width: '45px',
                                 background: '#fff',
                                 borderRadius: '50%',
-                                padding: '6px'
+                                padding: '6px',
+
                             }}
                         />
                         {
